@@ -39,6 +39,7 @@ public static class IEcosystemExtensions
 
         return new HashSet<IOrganism>(eco.ContainedOrganisms.Where(
             (org) => missingResources.Intersect(org.ConsumedResources).Count() > 0
-            ||  missingResources.Intersect(org.RequiredResources).Count() > 0));
+            || missingResources.Intersect(org.RequiredResources).Count() > 0
+            || !org.CanSurviveInClimateOf(eco)));
     }
 }
