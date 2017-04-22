@@ -5,8 +5,8 @@ using UnityEngine;
 public class Level : MonoBehaviour {
 
     public string id;
-    public Organism[] availableOrganisms;
-    public Organism[] planetOrganisms;
+    public OrganismComponent[] availableOrganisms;
+    public OrganismComponent[] planetOrganisms;
 
 	// Use this for initialization
 	void Start () {
