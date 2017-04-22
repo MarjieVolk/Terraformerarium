@@ -9,14 +9,29 @@ public class OrganismComponent : MonoBehaviour, IOrganism
     public Multiset<Resource> ConsumedResources { get; }
     public Multiset<Resource> RequiredResources { get; }
 
-    public int MinimumHumidity { get; }
-    public int MaximumHumidity { get; }
+    [SerializeField]
+    private int minimumHumidity;
+    [SerializeField]
+    private int maximumHumidity;
 
-    public int MinimumSoilRichness { get; }
-    public int MaximumSoilRichness { get; }
+    public int MinimumHumidity { get { return minimumHumidity; } }
+    public int MaximumHumidity { get { return maximumHumidity; } }
 
-    public int MinimumTemperature { get; }
-    public int MaximumTemperature { get; }
+    [SerializeField]
+    private int minimumSoilRichness;
+    [SerializeField]
+    private int maximumSoilRichness;
+
+    public int MinimumSoilRichness { get { return minimumSoilRichness; } }
+    public int MaximumSoilRichness { get { return maximumSoilRichness; } }
+
+    [SerializeField]
+    private int minimumTemperature;
+    [SerializeField]
+    private int maximumTemperature;
+
+    public int MinimumTemperature { get { return minimumTemperature; } }
+    public int MaximumTemperature { get { return maximumTemperature; } }
 
     // Use this for initialization
     void Start () {
