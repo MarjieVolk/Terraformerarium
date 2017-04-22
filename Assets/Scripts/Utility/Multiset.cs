@@ -8,7 +8,6 @@ using System.Text;
 public class Multiset<T> : ICollection<T>
 {
     private Dictionary<T, int> data;
-    private IEnumerable<Resource> enumerable;
     private int size;
 
     public Multiset()
@@ -40,6 +39,7 @@ public class Multiset<T> : ICollection<T>
         {
             data[item] = 1;
         }
+        this.size++;
     }
 
     public void Clear()
@@ -59,11 +59,6 @@ public class Multiset<T> : ICollection<T>
         {
             array[arrayIndex++] = element;
         }
-    }
-
-    public IEnumerator<T> GetEnumerator()
-    {
-        return GetEnumerable().GetEnumerator();
     }
 
     public bool Remove(T item)
@@ -89,9 +84,14 @@ public class Multiset<T> : ICollection<T>
         return false;
     }
 
+    public IEnumerator<T> GetEnumerator()
+    {
+        return GetEnumerable().GetEnumerator();
+    }
+
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return ((IEnumerable)this).GetEnumerator();
+        return this.GetEnumerator();
     }
 
     private IEnumerable<T> GetEnumerable()
