@@ -30,6 +30,11 @@ public static class IEcosystemExtensions
 
     public static Multiset<Resource> GetMissingResources(this IEcosystem eco)
     {
+        return new Multiset<Resource>(eco.GetConsumedResources().Union(eco.GetRequiredResources())).MultisetDifference(eco.GetProducedResources());
+    }
+
+    public static Multiset<Resource> GetUnusedResources(this IEcosystem eco)
+    {
         return eco.GetProducedResources().MultisetDifference(new Multiset<Resource>(eco.GetConsumedResources().Union(eco.GetRequiredResources())));
     }
 
