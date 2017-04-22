@@ -6,7 +6,7 @@ using UnityEngine;
 public class EcosystemComponent : MonoBehaviour, IEcosystem
 {
     // TODO these are all properties inferred from the scene graph
-    public HashSet<OrganismComponent> ContainedOrganisms { get; }
+    public HashSet<IOrganism> ContainedOrganisms { get; }
 
     public int Humidity { get; }
     public int SoilRichness { get; }
@@ -21,4 +21,13 @@ public class EcosystemComponent : MonoBehaviour, IEcosystem
 	void Update () {
 		
 	}
+
+    public void MergeFrom(EcosystemComponent other)
+    {
+        // reparent the organisms in the other environment to this environment
+        foreach (OrganismComponent organism in other.GetComponentsInChildren<OrganismComponent>())
+        {
+            organism.transform.parent = transform;
+        }
+    }
 }
