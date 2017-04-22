@@ -8,12 +8,21 @@ using System.Text;
 public class Multiset<T> : ICollection<T>
 {
     private Dictionary<T, int> data;
+    private IEnumerable<Resource> enumerable;
     private int size;
 
     public Multiset()
     {
         data = new Dictionary<T, int>();
         size = 0;
+    }
+
+    public Multiset(IEnumerable<T> enumerable) : this()
+    {
+        foreach (T element in enumerable)
+        {
+            Add(element);
+        }
     }
 
     public int Count { get { return size; } }

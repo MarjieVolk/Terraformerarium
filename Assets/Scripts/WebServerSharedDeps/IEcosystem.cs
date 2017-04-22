@@ -6,11 +6,30 @@ using System.Text;
 public interface IEcosystem
 {
     HashSet<OrganismComponent> ContainedOrganisms { get; }
-    Multiset<Resource> ProducedResources { get; }
-    Multiset<Resource> ConsumedResources { get; }
-    Multiset<Resource> RequiredResources { get; }
     int Humidity { get; }
     int SoilRichness { get; }
     int Temperature { get; }
 }
 
+public static class IEcosystemExtensions
+{
+    public static Multiset<Resource> GetProducedResources(this IEcosystem eco)
+    {
+        return new Multiset<Resource>(eco.ContainedOrganisms.SelectMany((org) => org.ProducedResources));
+    }
+
+    public static Multiset<Resource> GetConsumedResources(this IEcosystem eco)
+    {
+        return new Multiset<Resource>(eco.ContainedOrganisms.SelectMany((org) => org.ConsumedResources));
+    }
+
+    public static Multiset<Resource> GetRequiredResources(this IEcosystem eco)
+    {
+        return eco.ContainedOrganisms.Select((org) => org.RequiredResources).Aggregate(MultisetExtensions.MultisetMaxUnion);
+    }
+
+    public static Multiset<Resource> GetMissingResources(this IEcosystem eco)
+    {
+        return eco.GetProducedResources().MultisetDifference(new Multiset<Resource>(eco.GetConsumedResources().Union(eco.GetRequiredResources())));
+    }
+}
