@@ -5,8 +5,14 @@ using UnityEngine;
 
 public class EcosystemComponent : MonoBehaviour, IEcosystem
 {
-    // TODO these are all properties inferred from the scene graph
-    public HashSet<IOrganism> ContainedOrganisms { get; }
+    // these are all properties inferred from the scene graph
+    public HashSet<IOrganism> ContainedOrganisms
+    {
+        get
+        {
+            return new HashSet<IOrganism>(GetComponentsInChildren<OrganismComponent>());
+        }
+    }
 
     public int Humidity { get; }
     public int SoilRichness { get; }
