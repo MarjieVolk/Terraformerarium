@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EcosystemComponent : MonoBehaviour, IEcosystem
 {
     // TODO these are all properties inferred from the scene graph
-    public HashSet<OrganismComponent> ContainedOrganisms { get; }
-    public Multiset<Resource> ProducedResources { get; }
-    public Multiset<Resource> ConsumedResources { get; }
-    public Multiset<Resource> RequiredResources { get; }
+    public HashSet<IOrganism> ContainedOrganisms { get; }
+
     public int Humidity { get; }
     public int SoilRichness { get; }
     public int Temperature { get; }
@@ -22,4 +21,13 @@ public class EcosystemComponent : MonoBehaviour, IEcosystem
 	void Update () {
 		
 	}
+
+    public void MergeFrom(EcosystemComponent other)
+    {
+        // reparent the organisms in the other environment to this environment
+        foreach (OrganismComponent organism in other.GetComponentsInChildren<OrganismComponent>())
+        {
+            organism.transform.parent = transform;
+        }
+    }
 }

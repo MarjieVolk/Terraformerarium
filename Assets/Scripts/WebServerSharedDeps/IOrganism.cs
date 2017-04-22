@@ -19,3 +19,25 @@ public interface IOrganism
     int MaximumTemperature { get; }
 }
 
+public static class IOrganismExtensions
+{
+    public static bool CanSurviveInClimateOf(this IOrganism organism, IEcosystem ecosystem)
+    {
+        if (organism.MaximumHumidity < ecosystem.Humidity || organism.MinimumHumidity > ecosystem.Humidity)
+        {
+            return false;
+        }
+
+        if (organism.MaximumSoilRichness < ecosystem.SoilRichness || organism.MinimumSoilRichness > ecosystem.SoilRichness)
+        {
+            return false;
+        }
+
+        if (organism.MaximumTemperature < ecosystem.Temperature || organism.MinimumTemperature > ecosystem.Temperature)
+        {
+            return false;
+        }
+
+        return true;
+    }
+}

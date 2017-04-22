@@ -4,11 +4,23 @@ using System.Linq;
 using System.Text;
 
 
-public class MultisetExtensions
+public static class MultisetExtensions
 {
-    // TODO union (maybe already exists as addAll?)
     // TODO maxunion
-    // TODO difference (maybe already exists as removeAll?)
-    // TODO issubset
+    public static Multiset<T> MultisetMaxUnion<T>(this Multiset<T> first, Multiset<T> second)
+    {
+        return null;
+    }
+
+    public static Multiset<T> MultisetDifference<T>(this Multiset<T> first, Multiset<T> second)
+    {
+        Multiset<T> difference = new Multiset<T>(first);
+        foreach (T element in second)
+        {
+            difference.Remove(element);
+        }
+
+        return difference;
+    }
 }
 

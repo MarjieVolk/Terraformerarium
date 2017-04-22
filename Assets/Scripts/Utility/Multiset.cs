@@ -8,12 +8,21 @@ using System.Text;
 public class Multiset<T> : ICollection<T>
 {
     private Dictionary<T, int> data;
+    private IEnumerable<Resource> enumerable;
     private int size;
 
     public Multiset()
     {
         data = new Dictionary<T, int>();
         size = 0;
+    }
+
+    public Multiset(IEnumerable<T> enumerable) : this()
+    {
+        foreach (T element in enumerable)
+        {
+            Add(element);
+        }
     }
 
     public int Count { get { return size; } }
@@ -54,7 +63,7 @@ public class Multiset<T> : ICollection<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new MultisetEnumerator(this);
+        return GetEnumerable().GetEnumerator();
     }
 
     public bool Remove(T item)
@@ -82,71 +91,18 @@ public class Multiset<T> : ICollection<T>
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return new MultisetEnumerator(this);
+        return ((IEnumerable)this).GetEnumerator();
     }
 
-    private class MultisetEnumerator : IEnumerator<T>, IEnumerator
+    private IEnumerable<T> GetEnumerable()
     {
-        private Multiset<T> parent;
-        private Dictionary<T, int>.Enumerator dataEnumerator;
-        private int amountOfCurrentSeen;
-
-        public MultisetEnumerator(Multiset<T> parent)
+        var snapshot = new Dictionary<T, int>(this.data);
+        foreach (var kvp in snapshot)
         {
-            this.parent = parent;
-            Reset();
-        }
-
-        public T Current
-        {
-            get
+            for(int count = 0; count < kvp.Value; count++)
             {
-                if (amountOfCurrentSeen > 0)
-                {
-                    return dataEnumerator.Current.Key;
-                }
-
-                return default(T);
+                yield return kvp.Key;
             }
-        }
-
-        object IEnumerator.Current
-        {
-            get
-            {
-                if (amountOfCurrentSeen > 0)
-                {
-                    return dataEnumerator.Current.Key;
-                }
-
-                return null;
-            }
-        }
-
-        public void Dispose()
-        {
-            dataEnumerator.Dispose();
-        }
-
-        public bool MoveNext()
-        {
-            if (amountOfCurrentSeen >= dataEnumerator.Current.Value)
-            {
-                amountOfCurrentSeen = 1;
-                return dataEnumerator.MoveNext();
-            }
-            else
-            {
-                amountOfCurrentSeen++;
-                return true;
-            }
-        }
-
-        public void Reset()
-        {
-            dataEnumerator = parent.data.GetEnumerator();
-            dataEnumerator.MoveNext();
-            amountOfCurrentSeen = 0;
         }
     }
 }
