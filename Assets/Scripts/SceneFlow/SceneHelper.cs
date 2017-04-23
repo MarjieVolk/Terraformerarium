@@ -10,6 +10,7 @@ public class SceneHelper : MonoBehaviour {
     public void Awake()
     {
         Obj = this;
+        SceneState.RefreshCurrentCapsule();
     }
 
 	public void GoToMenu()
