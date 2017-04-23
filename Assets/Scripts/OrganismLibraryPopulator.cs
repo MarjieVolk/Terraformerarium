@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OrganismLibraryPopulator : MonoBehaviour
-{    
+{
+    private static bool initialized = false;
+      
 	public void Awake()
     {
-        OrganismDefinitions.Populate();
+        if (!initialized)
+        {
+            initialized = true;
+            OrganismDefinitions.Populate();
+        }
 	}
 }

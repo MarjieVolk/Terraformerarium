@@ -6,7 +6,7 @@ using Assets.Scripts.WebServerSharedDeps;
 
 public static class OrganismLibrary
 {
-    private static Dictionary<EOrganism, Organism> Library;
+    private static Dictionary<EOrganism, Organism> Library = new Dictionary<EOrganism, Organism>();
 
     public static Organism GetOrganismFor(EOrganism type)
     {
