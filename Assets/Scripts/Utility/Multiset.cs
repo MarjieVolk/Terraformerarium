@@ -24,6 +24,14 @@ public class Multiset<T> : ICollection<T>
         }
     }
 
+    public Multiset(params T[] elements) : this()
+    {
+        foreach (T element in elements)
+        {
+            Add(element);
+        }
+    }
+
     public int Count { get { return size; } }
 
     public bool IsReadOnly { get { return false; } }
