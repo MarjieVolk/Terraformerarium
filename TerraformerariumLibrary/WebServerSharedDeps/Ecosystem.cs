@@ -12,13 +12,19 @@ public class Ecosystem
     public void AddOrganism(Organism toAdd)
     {
         ContainedOrganisms.Add(toAdd);
-        OnOrganismsChanged(ContainedOrganisms);
+        if (OnOrganismsChanged != null)
+        {
+            OnOrganismsChanged(ContainedOrganisms);
+        }
     }
 
     public void RemoveOrganism(Organism toRemove)
     {
         ContainedOrganisms.Remove(toRemove);
-        OnOrganismsChanged(ContainedOrganisms);
+        if (OnOrganismsChanged != null)
+        {
+            OnOrganismsChanged(ContainedOrganisms);
+        }
     }
 
     public Ecosystem(int initialHumidity, int initialSoilRichness, int initialTemperature, params Organism[] organisms)
