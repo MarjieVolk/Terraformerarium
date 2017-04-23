@@ -5,9 +5,9 @@ using System.Text;
 
 public interface IOrganism
 {
-    Multiset<Resource> ProducedResources { get; }
-    Multiset<Resource> ConsumedResources { get; }
-    Multiset<Resource> RequiredResources { get; }
+    Multiset<EResource> ProducedResources { get; }
+    Multiset<EResource> ConsumedResources { get; }
+    Multiset<EResource> RequiredResources { get; }
 
     int MinimumHumidity { get; }
     int MaximumHumidity { get; }

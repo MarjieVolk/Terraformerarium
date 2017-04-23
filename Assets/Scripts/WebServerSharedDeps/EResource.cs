@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-public enum Resource
+public enum EResource
 {
     POOP,
     GRASS,

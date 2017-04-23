@@ -13,34 +13,34 @@ public interface IEcosystem
 
 public static class IEcosystemExtensions
 {
-    public static Multiset<Resource> GetProducedResources(this IEcosystem eco)
+    public static Multiset<EResource> GetProducedResources(this IEcosystem eco)
     {
-        return new Multiset<Resource>(eco.ContainedOrganisms.SelectMany((org) => org.ProducedResources));
+        return new Multiset<EResource>(eco.ContainedOrganisms.SelectMany((org) => org.ProducedResources));
     }
 
-    public static Multiset<Resource> GetConsumedResources(this IEcosystem eco)
+    public static Multiset<EResource> GetConsumedResources(this IEcosystem eco)
     {
-        return new Multiset<Resource>(eco.ContainedOrganisms.SelectMany((org) => org.ConsumedResources));
+        return new Multiset<EResource>(eco.ContainedOrganisms.SelectMany((org) => org.ConsumedResources));
     }
 
-    public static Multiset<Resource> GetRequiredResources(this IEcosystem eco)
+    public static Multiset<EResource> GetRequiredResources(this IEcosystem eco)
     {
         return eco.ContainedOrganisms.Select((org) => org.RequiredResources).Aggregate(MultisetExtensions.MultisetMaxUnion);
     }
 
-    public static Multiset<Resource> GetMissingResources(this IEcosystem eco)
+    public static Multiset<EResource> GetMissingResources(this IEcosystem eco)
     {
-        return new Multiset<Resource>(eco.GetConsumedResources().Union(eco.GetRequiredResources())).MultisetDifference(eco.GetProducedResources());
+        return new Multiset<EResource>(eco.GetConsumedResources().Union(eco.GetRequiredResources())).MultisetDifference(eco.GetProducedResources());
     }
 
-    public static Multiset<Resource> GetUnusedResources(this IEcosystem eco)
+    public static Multiset<EResource> GetUnusedResources(this IEcosystem eco)
     {
-        return eco.GetProducedResources().MultisetDifference(new Multiset<Resource>(eco.GetConsumedResources().Union(eco.GetRequiredResources())));
+        return eco.GetProducedResources().MultisetDifference(new Multiset<EResource>(eco.GetConsumedResources().Union(eco.GetRequiredResources())));
     }
 
     public static HashSet<IOrganism> GetUnsupportedOrganisms(this IEcosystem eco)
     {
-        Multiset<Resource> missingResources = eco.GetMissingResources();
+        Multiset<EResource> missingResources = eco.GetMissingResources();
 
         return new HashSet<IOrganism>(eco.ContainedOrganisms.Where(
             (org) => missingResources.Intersect(org.ConsumedResources).Count() > 0
