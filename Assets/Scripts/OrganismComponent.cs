@@ -9,9 +9,9 @@ public class OrganismComponent : MonoBehaviour, IOrganism
 
     private Organism Definition;
     
-    public Multiset<EResource> ProducedResources { get { return Definition.ProducedResources; } }
-    public Multiset<EResource> ConsumedResources { get { return Definition.ConsumedResources; } }
-    public Multiset<EResource> RequiredResources { get { return Definition.RequiredResources; } }
+    public Multiset<Resource> ProducedResources { get { return Definition.ProducedResources; } }
+    public Multiset<Resource> ConsumedResources { get { return Definition.ConsumedResources; } }
+    public Multiset<Resource> RequiredResources { get { return Definition.RequiredResources; } }
 
     public int MinimumHumidity { get { return Definition.MinimumHumidity; } }
     public int MaximumHumidity { get { return Definition.MaximumHumidity; } }

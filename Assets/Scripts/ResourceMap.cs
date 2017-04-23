@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ResourceMapping
 {
-    public EResource type;
+    public Resource type;
     public ResourceUI prefab;
 }
 
@@ -16,20 +16,20 @@ public class ResourceMap : MonoBehaviour {
 
     public ResourceMapping[] Map;
 
-    private Dictionary<EResource, ResourceUI> map;
+    private Dictionary<Resource, ResourceUI> map;
 
 	// Use this for initialization
 	void Awake() {
         Obj = this;
 
-        map = new Dictionary<EResource, ResourceUI>();
+        map = new Dictionary<Resource, ResourceUI>();
         foreach (ResourceMapping mapping in Map)
         {
             map[mapping.type] = mapping.prefab;
         }
 	}
 	
-	public ResourceUI GetResourcePrefab(EResource resource)
+	public ResourceUI GetResourcePrefab(Resource resource)
     {
         return map[resource];
     }

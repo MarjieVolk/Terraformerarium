@@ -19,11 +19,6 @@ public static class OrganismDefinitions
 
     public static void Populate()
     {
-        PopulateCow();
-    }
-
-    private static void PopulateCow()
-    {
         OrganismLibrary.RegisterOrganism(EOrganism.COW, new Organism()
         {
             MinimumHumidity = MinLow,
@@ -35,9 +30,9 @@ public static class OrganismDefinitions
             MinimumSoilRichness = MinVeryLow,
             MaximumSoilRichness = MaxVeryHigh,
             SoilRichnessMod = 3,
-            RequiredResources = new Multiset<EResource>(EResource.GRASS),
-            ConsumedResources = new Multiset<EResource>(EResource.GRASS),
-            ProducedResources = new Multiset<EResource>(EResource.MEAT, EResource.POOP)
+            RequiredResources = new Multiset<Resource>(Resource.GRASS),
+            ConsumedResources = new Multiset<Resource>(Resource.GRASS),
+            ProducedResources = new Multiset<Resource>(Resource.MEAT, Resource.POOP)
         });
 
         OrganismLibrary.RegisterOrganism(EOrganism.GRASS, new Organism()
@@ -51,9 +46,9 @@ public static class OrganismDefinitions
             MinimumSoilRichness = MinLow,
             MaximumSoilRichness = MaxVeryHigh,
             SoilRichnessMod = -1,
-            RequiredResources = new Multiset<EResource>(),
-            ConsumedResources = new Multiset<EResource>(),
-            ProducedResources = new Multiset<EResource>(EResource.GRASS)
+            RequiredResources = new Multiset<Resource>(),
+            ConsumedResources = new Multiset<Resource>(),
+            ProducedResources = new Multiset<Resource>(Resource.GRASS)
         });
 
         OrganismLibrary.RegisterOrganism(EOrganism.MOSQUITO, new Organism()
@@ -67,9 +62,9 @@ public static class OrganismDefinitions
             MinimumSoilRichness = MinVeryLow,
             MaximumSoilRichness = MaxVeryHigh,
             SoilRichnessMod = 0,
-            RequiredResources = new Multiset<EResource>(EResource.MEAT),
-            ConsumedResources = new Multiset<EResource>(),
-            ProducedResources = new Multiset<EResource>(EResource.BUGS, EResource.DISEASE)
+            RequiredResources = new Multiset<Resource>(Resource.MEAT),
+            ConsumedResources = new Multiset<Resource>(),
+            ProducedResources = new Multiset<Resource>(Resource.BUGS, Resource.DISEASE)
         });
 
         OrganismLibrary.RegisterOrganism(EOrganism.BLUE_JAY, new Organism()
@@ -83,9 +78,9 @@ public static class OrganismDefinitions
             MinimumSoilRichness = MinVeryLow,
             MaximumSoilRichness = MaxVeryHigh,
             SoilRichnessMod = 1,
-            RequiredResources = new Multiset<EResource>(EResource.SHADE),
-            ConsumedResources = new Multiset<EResource>(EResource.BUGS),
-            ProducedResources = new Multiset<EResource>()
+            RequiredResources = new Multiset<Resource>(Resource.SHADE),
+            ConsumedResources = new Multiset<Resource>(Resource.BUGS),
+            ProducedResources = new Multiset<Resource>()
         });
 
         OrganismLibrary.RegisterOrganism(EOrganism.APPLE_TREE, new Organism()
@@ -99,9 +94,9 @@ public static class OrganismDefinitions
             MinimumSoilRichness = MinHigh,
             MaximumSoilRichness = MaxVeryHigh,
             SoilRichnessMod = 1,
-            RequiredResources = new Multiset<EResource>(),
-            ConsumedResources = new Multiset<EResource>(EResource.POOP),
-            ProducedResources = new Multiset<EResource>(EResource.SHADE, EResource.FRUIT)
+            RequiredResources = new Multiset<Resource>(),
+            ConsumedResources = new Multiset<Resource>(Resource.POOP),
+            ProducedResources = new Multiset<Resource>(Resource.SHADE, Resource.FRUIT)
         });
     }
 }

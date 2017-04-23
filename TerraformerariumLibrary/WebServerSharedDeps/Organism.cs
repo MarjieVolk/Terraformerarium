@@ -6,11 +6,11 @@ using System.Text;
 
 public class Organism : IOrganism
 {
-    public Multiset<EResource> ConsumedResources { get; set; }
+    public Multiset<Resource> ConsumedResources { get; set; }
 
-    public Multiset<EResource> ProducedResources { get; set; }
+    public Multiset<Resource> ProducedResources { get; set; }
 
-    public Multiset<EResource> RequiredResources { get; set; }
+    public Multiset<Resource> RequiredResources { get; set; }
 
     public int MinimumHumidity { get; set; }
 
