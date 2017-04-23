@@ -35,6 +35,7 @@
     <Compile Include="Utility\Multiset.cs" />
     <Compile Include="Utility\MultisetExtensions.cs" />
     <Compile Include="WebServerSharedDeps\Ecosystem.cs" />
+    <Compile Include="WebServerSharedDeps\EOrganism.cs" />
     <Compile Include="WebServerSharedDeps\IEcosystem.cs" />
     <Compile Include="WebServerSharedDeps\IOrganism.cs" />
     <Compile Include="WebServerSharedDeps\Level.cs" />
