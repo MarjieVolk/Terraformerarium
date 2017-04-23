@@ -12,7 +12,10 @@ public class Ecosystem
     public void AddOrganism(Organism toAdd)
     {
         ContainedOrganisms.Add(toAdd);
-        OnOrganismsChanged(ContainedOrganisms);
+        if (OnOrganismsChanged != null)
+        {
+            OnOrganismsChanged(ContainedOrganisms);
+        }
     }
 
     public void AddOrganisms(IEnumerable<Organism> toAdd)
@@ -25,7 +28,10 @@ public class Ecosystem
     public void RemoveOrganism(Organism toRemove)
     {
         ContainedOrganisms.Remove(toRemove);
-        OnOrganismsChanged(ContainedOrganisms);
+        if (OnOrganismsChanged != null)
+        {
+            OnOrganismsChanged(ContainedOrganisms);
+        }
     }
 
     public void RemoveOrganisms(IEnumerable<Organism> toRemove)
