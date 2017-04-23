@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.WebServerSharedDeps;
 
 public interface IOrganism
 {
+    EOrganism Type { get; }
+
     Multiset<Resource> ProducedResources { get; }
     Multiset<Resource> ConsumedResources { get; }
     Multiset<Resource> RequiredResources { get; }

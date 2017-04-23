@@ -19,5 +19,22 @@ public class LevelDefinitions
             availableOrganisms = new List<IOrganism>() { OrganismLibrary.GetOrganismFor(EOrganism.COW) },
             GoalEvaluator = (eco) => true
         });
+
+        LevelLibrary.RegisterLevel("Level1", new Level()
+        {
+            InitialPlanet = NewEcosystem(0, 0, 0, EOrganism.COUGAR),
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.FOX, EOrganism.RABBIT).ToList(),
+            GoalEvaluator = (eco) => true
+        });
+    }
+
+    private static IEnumerable<IOrganism> Organisms(params EOrganism[] organisms)
+    {
+        return organisms.Select(org => OrganismLibrary.GetOrganismFor(org) as IOrganism);
+    }
+
+    private static Ecosystem NewEcosystem(int initialHumidity, int initialSoilRichness, int initialTemperature, params EOrganism[] organisms)
+    {
+        return new Ecosystem(initialHumidity, initialSoilRichness, initialTemperature, Organisms(organisms).ToArray());
     }
 }

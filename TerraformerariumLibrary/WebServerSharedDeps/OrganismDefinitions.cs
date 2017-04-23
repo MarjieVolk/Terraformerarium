@@ -19,8 +19,9 @@ public static class OrganismDefinitions
 
     public static void Populate()
     {
-        OrganismLibrary.RegisterOrganism(EOrganism.COW, new Organism()
+        OrganismLibrary.RegisterOrganism(new Organism()
         {
+            Type = EOrganism.COW,
             MinimumHumidity = MinLow,
             MaximumHumidity = MaxHigh,
             HumidityMod = 0,
@@ -35,8 +36,9 @@ public static class OrganismDefinitions
             ProducedResources = new Multiset<Resource>(Resource.MEAT, Resource.POOP)
         });
 
-        OrganismLibrary.RegisterOrganism(EOrganism.GRASS, new Organism()
+        OrganismLibrary.RegisterOrganism(new Organism()
         {
+            Type = EOrganism.GRASS,
             MinimumHumidity = MinLow,
             MaximumHumidity = MaxVeryHigh,
             HumidityMod = 0,
@@ -51,8 +53,9 @@ public static class OrganismDefinitions
             ProducedResources = new Multiset<Resource>(Resource.GRASS)
         });
 
-        OrganismLibrary.RegisterOrganism(EOrganism.MOSQUITO, new Organism()
+        OrganismLibrary.RegisterOrganism(new Organism()
         {
+            Type = EOrganism.MOSQUITO,
             MinimumHumidity = MinNormal,
             MaximumHumidity = MaxVeryHigh,
             HumidityMod = 0,
@@ -67,8 +70,9 @@ public static class OrganismDefinitions
             ProducedResources = new Multiset<Resource>(Resource.BUGS, Resource.DISEASE)
         });
 
-        OrganismLibrary.RegisterOrganism(EOrganism.BLUE_JAY, new Organism()
+        OrganismLibrary.RegisterOrganism(new Organism()
         {
+            Type = EOrganism.BLUE_JAY,
             MinimumHumidity = MinLow,
             MaximumHumidity = MaxHigh,
             HumidityMod = 0,
@@ -83,8 +87,9 @@ public static class OrganismDefinitions
             ProducedResources = new Multiset<Resource>()
         });
 
-        OrganismLibrary.RegisterOrganism(EOrganism.APPLE_TREE, new Organism()
+        OrganismLibrary.RegisterOrganism(new Organism()
         {
+            Type = EOrganism.APPLE_TREE,
             MinimumHumidity = MinHigh,
             MaximumHumidity = MaxHigh,
             HumidityMod = 0,
@@ -99,8 +104,9 @@ public static class OrganismDefinitions
             ProducedResources = new Multiset<Resource>(Resource.SHADE, Resource.FRUIT)
         });
 
-        OrganismLibrary.RegisterOrganism(EOrganism.FOX, new Organism()
+        OrganismLibrary.RegisterOrganism(new Organism()
         {
+            Type = EOrganism.FOX,
             MinimumHumidity = MinVeryLow,
             MaximumHumidity = MaxVeryHigh,
             HumidityMod = 0,

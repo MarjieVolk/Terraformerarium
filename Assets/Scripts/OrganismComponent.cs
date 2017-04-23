@@ -8,6 +8,8 @@ public class OrganismComponent : MonoBehaviour, IOrganism
     public EOrganism OrganismType;
 
     private Organism Definition;
+
+    public EOrganism Type { get { return Definition.Type; } }
     
     public Multiset<Resource> ProducedResources { get { return Definition.ProducedResources; } }
     public Multiset<Resource> ConsumedResources { get { return Definition.ConsumedResources; } }
