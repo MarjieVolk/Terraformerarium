@@ -16,14 +16,17 @@ public class LevelDefinitions
         {
             InitialPlanet = new Ecosystem(0, 0, 0, OrganismLibrary.GetOrganismFor(EOrganism.COW)),
             availableOrganisms = new List<Organism>() { OrganismLibrary.GetOrganismFor(EOrganism.COW) },
-            GoalEvaluator = (eco) => true
+            LevelGoals = new List<LevelGoal>() { new ResourceLevelGoal(Resource.MEAT, Operator.GreaterThanOrEqual, 2)}
         });
 
         LevelLibrary.RegisterLevel("Level1", new Level()
         {
             InitialPlanet = NewEcosystem(0, 0, 0, EOrganism.COUGAR),
             availableOrganisms = Organisms(EOrganism.COW, EOrganism.SNAKE, EOrganism.FOX, EOrganism.HEN).ToList(),
-            GoalEvaluator = (eco) => true
+            LevelGoals = new List<LevelGoal>() {
+                new ResourceLevelGoal(Resource.MEAT, Operator.GreaterThanOrEqual, 1),
+                new EnvironmentLevelGoal(EnvironmentAttribute.Temperature, Operator.LessThanOrEqual, -2)
+            }
         });
     }
 

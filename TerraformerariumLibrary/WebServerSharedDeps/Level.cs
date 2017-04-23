@@ -6,7 +6,6 @@ using System.Text;
 public class Level
 {
     public Ecosystem InitialPlanet { get; set; }
-    // TODO make this a white box so it can be displayed to the player easily
-    public Predicate<Ecosystem> GoalEvaluator { get; set; }
+    public IEnumerable<LevelGoal> LevelGoals { get; set; }
     public List<Organism> availableOrganisms { get; set; }
 }
