@@ -11,12 +11,16 @@ public interface IOrganism
 
     int MinimumHumidity { get; }
     int MaximumHumidity { get; }
+    int HumidityMod { get; }
 
     int MinimumSoilRichness { get; }
     int MaximumSoilRichness { get; }
+    int SoilRichnessMod { get; }
 
     int MinimumTemperature { get; }
     int MaximumTemperature { get; }
+    int TemperatureMod { get; }
+
 }
 
 public static class IOrganismExtensions
