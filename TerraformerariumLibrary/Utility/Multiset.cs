@@ -32,6 +32,11 @@ public class Multiset<T> : ICollection<T>
         }
     }
 
+    public Dictionary<T, int> AsDictionary()
+    {
+        return new Dictionary<T, int>(data);
+    }
+
     public int Count { get { return size; } }
 
     public bool IsReadOnly { get { return false; } }

@@ -34,7 +34,7 @@ public sealed class LevelSolutionEvaluator : ISolutionEvaluator
                 .Single();
             var goalEvaluator = Activator.CreateInstance(goalEvaluatorType);
             var method = goalEvaluatorType.GetMethod("IsSatisfied", new[] {goal.GetType(), typeof(Ecosystem)});
-            Ecosystem finalEcosystem = GetFinalEcosystem(userSolution);
+            Ecosystem finalEcosystem = userSolution.GetFinalEcosystem();
             bool result = (bool)method.Invoke(goalEvaluator, new object[] {goal, finalEcosystem});
 
             goalResults[goal] = result;
@@ -42,12 +42,5 @@ public sealed class LevelSolutionEvaluator : ISolutionEvaluator
 
         bool allGoalsPassed = goalResults.Values.All(result => result == true);
         return new SolutionEvaluationResult(allGoalsPassed);
-    }
-
-    private static Ecosystem GetFinalEcosystem(UserSolution userSolution)
-    {
-        // TODO: Implement
-        throw new NotImplementedException();
-        return userSolution.Ecosystems.First();
     }
 }
