@@ -15,9 +15,23 @@ public class Ecosystem
         OnOrganismsChanged(ContainedOrganisms);
     }
 
+    public void AddOrganisms(IEnumerable<Organism> toAdd)
+    {
+        foreach (Organism o in toAdd)
+            ContainedOrganisms.Add(o);
+        OnOrganismsChanged(ContainedOrganisms);
+    }
+
     public void RemoveOrganism(Organism toRemove)
     {
         ContainedOrganisms.Remove(toRemove);
+        OnOrganismsChanged(ContainedOrganisms);
+    }
+
+    public void RemoveOrganisms(IEnumerable<Organism> toRemove)
+    {
+        foreach (Organism o in toRemove)
+            ContainedOrganisms.Remove(o);
         OnOrganismsChanged(ContainedOrganisms);
     }
 

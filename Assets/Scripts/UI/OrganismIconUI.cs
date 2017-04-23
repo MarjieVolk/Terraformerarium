@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Assets.Scripts.WebServerSharedDeps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,10 +25,13 @@ public class OrganismIconUI : MonoBehaviour
 
     private void ToggleNumber()
     {
-        int currentCount = capsule.ContainedOrganisms.RemoveWhere(org => org.Type == this.type);
-        int newCount = (currentCount + 1) % (MaxOfType + 1);
-        for (int i = 0; i < newCount; i++)
-            capsule.ContainedOrganisms.Add(OrganismLibrary.GetOrganismFor(this.type));
+        IEnumerable<Organism> capsuleOrganisms = capsule.ContainedOrganisms.Where(org => org.Type == this.type);
+        int currentCount = capsuleOrganisms.Count();
+
+        if (currentCount == MaxOfType)
+            capsule.RemoveOrganisms(capsuleOrganisms);
+        else
+            capsule.AddOrganism(OrganismLibrary.GetOrganismFor(this.type));
 
         this.RefreshUI();
     }
