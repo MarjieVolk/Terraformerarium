@@ -86,7 +86,7 @@ public class Ecosystem
 
     public Multiset<Resource> GetRequiredResources()
     {
-        return ContainedOrganisms.Select((org) => org.RequiredResources).Aggregate(MultisetExtensions.MultisetMaxUnion);
+        return ContainedOrganisms.Select((org) => org.RequiredResources).Aggregate(new Multiset<Resource>(), MultisetExtensions.MultisetMaxUnion);
     }
 
     public Multiset<Resource> GetMissingResources()
