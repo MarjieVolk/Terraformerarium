@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts.WebServerSharedDeps
+
+public enum EOrganism
 {
-    public enum EOrganism
-    {
-        COW,
-        GRASS,
-        MOSQUITO,
-        BLUE_JAY,
-        APPLE_TREE,
-        LETTUCE,
-        WHEAT,
-        RABBIT,
-        FOX,
-        COUGAR,
-        HEN,
-        SNAKE
-    }
+    COW,
+    GRASS,
+    MOSQUITO,
+    BLUE_JAY,
+    APPLE_TREE,
+    LETTUCE,
+    WHEAT,
+    RABBIT,
+    FOX,
+    COUGAR,
+    HEN,
+    SNAKE
 }

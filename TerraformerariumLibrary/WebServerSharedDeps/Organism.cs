@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Assets.Scripts.WebServerSharedDeps;
 
 public class Organism : IOrganism
 {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Assets.Scripts.WebServerSharedDeps;
 
 public interface IOrganism
 {
@@ -28,7 +27,7 @@ public interface IOrganism
 
 public static class IOrganismExtensions
 {
-    public static bool CanSurviveInClimateOf(this IOrganism organism, IEcosystem ecosystem)
+    public static bool CanSurviveInClimateOf(this IOrganism organism, Ecosystem ecosystem)
     {
         if (organism.MaximumHumidity < ecosystem.Humidity || organism.MinimumHumidity > ecosystem.Humidity)
         {
