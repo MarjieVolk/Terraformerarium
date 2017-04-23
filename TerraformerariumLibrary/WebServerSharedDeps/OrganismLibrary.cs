@@ -16,8 +16,8 @@ public static class OrganismLibrary
         return org;
     }
 
-    public static void RegisterOrganism(EOrganism type, Organism org)
+    public static void RegisterOrganism(Organism org)
     {
-        Library[type] = org;
+        Library[org.Type] = org;
     }
 }

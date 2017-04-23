@@ -5,7 +5,7 @@ using System.Text;
 
 public static class LevelLibrary
 {
-    private static Dictionary<string, Level> Library;
+    private static Dictionary<string, Level> Library = new Dictionary<string, Level>();
 
     public static Level GetLevelFor(string canonicalName)
     {

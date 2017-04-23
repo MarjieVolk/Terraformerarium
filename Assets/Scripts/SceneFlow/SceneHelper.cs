@@ -14,25 +14,21 @@ public class SceneHelper : MonoBehaviour {
 
 	public void GoToMenu()
     {
-        SceneState.CurrentLevel = null;
         SceneManager.LoadScene("Menu");
     }
 
     public void GoToLevelSelect()
     {
-        SceneState.CurrentLevel = null;
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void GoToLevel(string level)
     {
-        SceneState.CurrentLevel = level;
         SceneManager.LoadScene(level);
     }
 
     public void GoToLeaderboard(string level)
     {
-        SceneState.CurrentLevel = level;
         SceneManager.LoadScene("Leaderboard");
     }
 }

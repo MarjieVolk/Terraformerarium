@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Assets.Scripts.WebServerSharedDeps;
 
 public class Organism : IOrganism
 {
+    public EOrganism Type { get; set; }
+
     public Multiset<Resource> ConsumedResources { get; set; }
 
     public Multiset<Resource> ProducedResources { get; set; }
