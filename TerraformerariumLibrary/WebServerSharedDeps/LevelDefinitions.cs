@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Assets.Scripts.WebServerSharedDeps;
 
 public class LevelDefinitions
 {
@@ -16,7 +15,7 @@ public class LevelDefinitions
         LevelLibrary.RegisterLevel("cowLevel", new Level()
         {
             InitialPlanet = new Ecosystem(0, 0, 0, OrganismLibrary.GetOrganismFor(EOrganism.COW)),
-            availableOrganisms = new List<IOrganism>() { OrganismLibrary.GetOrganismFor(EOrganism.COW) },
+            availableOrganisms = new List<Organism>() { OrganismLibrary.GetOrganismFor(EOrganism.COW) },
             GoalEvaluator = (eco) => true
         });
 
@@ -28,9 +27,9 @@ public class LevelDefinitions
         });
     }
 
-    private static IEnumerable<IOrganism> Organisms(params EOrganism[] organisms)
+    private static IEnumerable<Organism> Organisms(params EOrganism[] organisms)
     {
-        return organisms.Select(org => OrganismLibrary.GetOrganismFor(org) as IOrganism);
+        return organisms.Select(org => OrganismLibrary.GetOrganismFor(org));
     }
 
     private static Ecosystem NewEcosystem(int initialHumidity, int initialSoilRichness, int initialTemperature, params EOrganism[] organisms)

@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.WebServerSharedDeps;
 
 public class EcosystemResourcesUI : MonoBehaviour {
-
-    [SerializeField] private EcosystemComponent ecosystem;
+    // TODO this isn't editor injectable anymore
+    private Ecosystem ecosystem;
     [SerializeField] private GameObject container;
 	
     public void Start()

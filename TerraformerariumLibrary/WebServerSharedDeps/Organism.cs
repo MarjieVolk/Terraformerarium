@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Assets.Scripts.WebServerSharedDeps;
 
-public class Organism : IOrganism
+public class Organism
 {
     public EOrganism Type { get; set; }
 
@@ -31,4 +30,24 @@ public class Organism : IOrganism
     public int MaximumTemperature { get; set; }
 
     public int TemperatureMod { get; set; }
+
+    public bool CanSurviveInClimateOf(Ecosystem ecosystem)
+    {
+        if (MaximumHumidity < ecosystem.Humidity || MinimumHumidity > ecosystem.Humidity)
+        {
+            return false;
+        }
+
+        if (MaximumSoilRichness < ecosystem.SoilRichness || MinimumSoilRichness > ecosystem.SoilRichness)
+        {
+            return false;
+        }
+
+        if (MaximumTemperature < ecosystem.Temperature || MinimumTemperature > ecosystem.Temperature)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

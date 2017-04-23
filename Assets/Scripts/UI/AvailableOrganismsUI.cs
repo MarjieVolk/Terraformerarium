@@ -8,7 +8,7 @@ public class AvailableOrganismsUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        foreach (IOrganism organism in SceneState.GetCurrentLevel().availableOrganisms)
+        foreach (Organism organism in SceneState.GetCurrentLevel().availableOrganisms)
         {
             OrganismIconUI instance = Instantiate(organismIconPrefab, this.transform);
             instance.type = organism.Type;
