@@ -93,12 +93,17 @@ public class Ecosystem
 
     public Multiset<Resource> GetMissingResources()
     {
-        return new Multiset<Resource>(GetConsumedResources().Union(GetRequiredResources())).MultisetDifference(GetProducedResources());
+        return new Multiset<Resource>(GetConsumedResources().Concat(GetRequiredResources())).MultisetDifference(GetProducedResources());
     }
 
-    public Multiset<Resource> GetUnusedResources()
+    public Multiset<Resource> GetAvailableResources()
     {
-        return GetProducedResources().MultisetDifference(new Multiset<Resource>(GetConsumedResources().Union(GetRequiredResources())));
+        return GetProducedResources().MultisetDifference(new Multiset<Resource>(GetConsumedResources()));
+    }
+
+    public Multiset<Resource> GetSuperfluousResources()
+    {
+        return GetProducedResources().MultisetDifference(new Multiset<Resource>(GetConsumedResources().Concat(GetRequiredResources())));
     }
 
     public Multiset<Organism> GetUnsupportedOrganisms()
