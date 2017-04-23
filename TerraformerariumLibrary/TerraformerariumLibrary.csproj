@@ -34,8 +34,12 @@
   <ItemGroup>
     <Compile Include="Utility\Multiset.cs" />
     <Compile Include="Utility\MultisetExtensions.cs" />
+    <Compile Include="WebServerSharedDeps\Ecosystem.cs" />
     <Compile Include="WebServerSharedDeps\IEcosystem.cs" />
     <Compile Include="WebServerSharedDeps\IOrganism.cs" />
+    <Compile Include="WebServerSharedDeps\Level.cs" />
+    <Compile Include="WebServerSharedDeps\LevelDefinitions.cs" />
+    <Compile Include="WebServerSharedDeps\LevelLibrary.cs" />
     <Compile Include="WebServerSharedDeps\Organism.cs" />
     <Compile Include="WebServerSharedDeps\OrganismDefinitions.cs" />
     <Compile Include="WebServerSharedDeps\OrganismLibrary.cs" />
