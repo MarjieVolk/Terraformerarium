@@ -25,12 +25,12 @@ public class EcosystemResourcesUI : MonoBehaviour {
 
         foreach (Resource missing in ecosystem.Ecosystem.GetMissingResources())
         {
-            Instantiate(ResourceMap.Obj.GetResourcePrefab(missing), container.transform).Init(true);
+            Instantiate(ResourceMap.Obj.GetResourcePrefab(missing), container.transform).Init(ResourceMode.Required);
         }
 
         foreach (Resource unused in ecosystem.Ecosystem.GetUnusedResources())
         {
-            Instantiate(ResourceMap.Obj.GetResourcePrefab(unused), container.transform).Init(false);
+            Instantiate(ResourceMap.Obj.GetResourcePrefab(unused), container.transform).Init(ResourceMode.Produced);
         }
 	}
 

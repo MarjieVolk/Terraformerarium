@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
+[RequireComponent(typeof(HasOrganismTooltip))]
 public class OrganismIconUI : MonoBehaviour
 {
     private const int MaxOfType = 3;
@@ -15,6 +16,7 @@ public class OrganismIconUI : MonoBehaviour
     public void Start()
     {
         Instantiate(OrganismMap.Obj.GetIconPrefab(this.type), this.transform).transform.SetAsFirstSibling();
+        this.GetComponent<HasOrganismTooltip>().type = this.type;
         this.GetComponent<Button>().onClick.AddListener(this.ToggleNumber);
         this.RefreshUI();
     }
