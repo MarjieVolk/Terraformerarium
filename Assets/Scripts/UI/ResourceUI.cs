@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class ResourceUI : MonoBehaviour {
 
     public Image icon;
+    public Sprite normalIcon;
+    public Sprite missingIcon;
 
 	public void Init(bool isMissing)
     {
         if (isMissing)
-            icon.color = Color.red;
+            icon.sprite = missingIcon;
+        else
+            icon.sprite = normalIcon;
     }
 }

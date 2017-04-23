@@ -136,5 +136,39 @@ public static class OrganismDefinitions
             ConsumedResources = new Multiset<Resource>(Resource.MEAT, Resource.MEAT),
             ProducedResources = new Multiset<Resource>(Resource.POOP)
         });
+
+        OrganismLibrary.RegisterOrganism(new Organism()
+        {
+            Type = EOrganism.SNAKE,
+            MinimumHumidity = MinVeryLow,
+            MaximumHumidity = MaxNormal,
+            HumidityMod = 0,
+            MinimumTemperature = MinHigh,
+            MaximumTemperature = MaxVeryHigh,
+            TemperatureMod = 1,
+            MinimumSoilRichness = MinVeryLow,
+            MaximumSoilRichness = MaxVeryHigh,
+            SoilRichnessMod = 0,
+            RequiredResources = new Multiset<Resource>(Resource.ROCK),
+            ConsumedResources = new Multiset<Resource>(Resource.EGGSES),
+            ProducedResources = new Multiset<Resource>()
+        });
+
+        OrganismLibrary.RegisterOrganism(new Organism()
+        {
+            Type = EOrganism.HEN,
+            MinimumHumidity = MinVeryLow,
+            MaximumHumidity = MaxVeryHigh,
+            HumidityMod = 0,
+            MinimumTemperature = MinLow,
+            MaximumTemperature = MaxHigh,
+            TemperatureMod = 1,
+            MinimumSoilRichness = MinVeryLow,
+            MaximumSoilRichness = MaxVeryHigh,
+            SoilRichnessMod = 0,
+            RequiredResources = new Multiset<Resource>(Resource.GRASS),
+            ConsumedResources = new Multiset<Resource>(Resource.GRAINS),
+            ProducedResources = new Multiset<Resource>(Resource.EGGSES)
+        });
     }
 }
