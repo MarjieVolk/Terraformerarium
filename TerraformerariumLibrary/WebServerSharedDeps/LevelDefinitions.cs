@@ -22,7 +22,7 @@ public class LevelDefinitions
         LevelLibrary.RegisterLevel("Level1", new Level()
         {
             InitialPlanet = NewEcosystem(0, 0, 0, EOrganism.COUGAR),
-            availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.FOX, EOrganism.RABBIT).ToList(),
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.FOX).ToList(),
             GoalEvaluator = (eco) => true
         });
     }

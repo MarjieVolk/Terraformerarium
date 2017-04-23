@@ -6,7 +6,7 @@ using UnityEngine;
 public class OrganismMapping
 {
     public EOrganism type;
-    public OrganismIconUI iconPrefab;
+    public CanvasGroup iconPrefab;
     public OrganismUI prefab;
 }
 
@@ -35,7 +35,7 @@ public class OrganismMap : MonoBehaviour
         return map[organism].prefab;
     }
 
-    public OrganismIconUI GetIconPrefab(EOrganism organism)
+    public CanvasGroup GetIconPrefab(EOrganism organism)
     {
         return map[organism].iconPrefab;
     }
