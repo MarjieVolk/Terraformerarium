@@ -36,6 +36,9 @@
     <Compile Include="Utility\MultisetExtensions.cs" />
     <Compile Include="WebServerSharedDeps\IEcosystem.cs" />
     <Compile Include="WebServerSharedDeps\IOrganism.cs" />
+    <Compile Include="WebServerSharedDeps\Organism.cs" />
+    <Compile Include="WebServerSharedDeps\OrganismDefinitions.cs" />
+    <Compile Include="WebServerSharedDeps\OrganismLibrary.cs" />
     <Compile Include="WebServerSharedDeps\Resource.cs" />
   </ItemGroup>
   <ItemGroup>
