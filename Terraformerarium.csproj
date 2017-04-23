@@ -89,11 +89,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CreateHistogram.cs" />
     <Compile Include="Assets\Scripts\EcosystemComponent.cs" />
     <Compile Include="Assets\Scripts\Leaderboard\LeaderboardLevelName.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\OrganismComponent.cs" />
     <Compile Include="Assets\Scripts\OrganismLibraryPopulator.cs" />
+    <Compile Include="Assets\Scripts\OrganismMap.cs" />
     <Compile Include="Assets\Scripts\ResourceMap.cs" />
     <Compile Include="Assets\Scripts\SceneFlow\EscapeMenu\EscapeMenu.cs" />
     <Compile Include="Assets\Scripts\SceneFlow\EscapeMenu\ExitButton.cs" />
@@ -103,6 +105,8 @@
     <Compile Include="Assets\Scripts\SceneFlow\SceneState.cs" />
     <Compile Include="Assets\Scripts\SceneFlow\SelectLevelButton.cs" />
     <Compile Include="Assets\Scripts\UI\EcosystemResourcesUI.cs" />
+    <Compile Include="Assets\Scripts\UI\OrganismIconUI.cs" />
+    <Compile Include="Assets\Scripts\UI\OrganismUI.cs" />
     <Compile Include="Assets\Scripts\UI\ResourceUI.cs" />
     <Compile Include="Assets\Scripts\UI\ScreenResolutionEnforcer.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />

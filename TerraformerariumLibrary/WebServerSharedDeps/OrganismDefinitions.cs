@@ -90,13 +90,29 @@ public static class OrganismDefinitions
             HumidityMod = 0,
             MinimumTemperature = MinNormal,
             MaximumTemperature = MaxHigh,
-            TemperatureMod = 0,
+            TemperatureMod = -3,
             MinimumSoilRichness = MinHigh,
             MaximumSoilRichness = MaxVeryHigh,
             SoilRichnessMod = 1,
             RequiredResources = new Multiset<Resource>(),
             ConsumedResources = new Multiset<Resource>(Resource.POOP),
             ProducedResources = new Multiset<Resource>(Resource.SHADE, Resource.FRUIT)
+        });
+
+        OrganismLibrary.RegisterOrganism(EOrganism.FOX, new Organism()
+        {
+            MinimumHumidity = MinVeryLow,
+            MaximumHumidity = MaxVeryHigh,
+            HumidityMod = 0,
+            MinimumTemperature = MinVeryLow,
+            MaximumTemperature = MaxLow,
+            TemperatureMod = 1,
+            MinimumSoilRichness = MinVeryLow,
+            MaximumSoilRichness = MaxVeryHigh,
+            SoilRichnessMod = 0,
+            RequiredResources = new Multiset<Resource>(),
+            ConsumedResources = new Multiset<Resource>(Resource.MEAT),
+            ProducedResources = new Multiset<Resource>(Resource.MEAT)
         });
     }
 }

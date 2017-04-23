@@ -11,6 +11,13 @@ namespace Assets.Scripts.WebServerSharedDeps
         GRASS,
         MOSQUITO,
         BLUE_JAY,
-        APPLE_TREE
+        APPLE_TREE,
+        LETTUCE,
+        WHEAT,
+        RABBIT,
+        FOX,
+        COUGAR,
+        HEN,
+        SNAKE
     }
 }

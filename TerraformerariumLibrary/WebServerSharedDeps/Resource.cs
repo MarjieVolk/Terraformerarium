@@ -15,5 +15,6 @@ public enum Resource
     MEAT,
     DISEASE,
     SHADE,
-    EGGSES
+    EGGSES,
+    ROCK
 }
