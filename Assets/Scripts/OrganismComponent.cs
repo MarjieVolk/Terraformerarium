@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.WebServerSharedDeps;
 using UnityEngine;
 
 public class OrganismComponent : MonoBehaviour, IOrganism
 {
+    public EOrganism OrganismType;
+
     private Organism Definition;
     
     public Multiset<Resource> ProducedResources { get { return Definition.ProducedResources; } }
@@ -29,7 +32,7 @@ public class OrganismComponent : MonoBehaviour, IOrganism
 
     // Use this for initialization
     void Start () {
-		
+        this.SetDefinition(OrganismLibrary.GetOrganismFor(this.OrganismType));
 	}
 	
 	// Update is called once per frame

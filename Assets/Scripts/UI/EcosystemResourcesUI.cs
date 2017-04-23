@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.WebServerSharedDeps;
 
 public class EcosystemResourcesUI : MonoBehaviour {
 
-    private EcosystemComponent ecosystem;
+    [SerializeField] private EcosystemComponent ecosystem;
     [SerializeField] private GameObject container;
 	
-    // TODO Refresh when ecosystem changes
+    public void Start()
+    {
+        this.Refresh();
+    }
+    
 	public void Refresh()
     {
-        while (container.transform.childCount > 0)
-            Destroy(container.transform.GetChild(0));
+        for (int i = 0; i < container.transform.childCount; i++)
+            Destroy(container.transform.GetChild(i).gameObject);
 
         foreach (Resource missing in ecosystem.GetMissingResources())
         {
@@ -23,10 +28,4 @@ public class EcosystemResourcesUI : MonoBehaviour {
             Instantiate(ResourceMap.Obj.GetResourcePrefab(unused), container.transform).Init(false);
         }
 	}
-
-    public void SetEcosystem(EcosystemComponent ecosystem)
-    {
-        this.ecosystem = ecosystem;
-        this.Refresh();
-    }
 }

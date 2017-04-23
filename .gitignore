@@ -16,6 +16,7 @@ Terraformerarium.CSharp.csproj
 *.pidb
 *.booproj
 *.svd
+*.sln
 
 
 # Unity3D generated meta files
