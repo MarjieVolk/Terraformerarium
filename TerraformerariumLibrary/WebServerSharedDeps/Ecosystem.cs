@@ -5,28 +5,28 @@ using System.Text;
 
 public class Ecosystem
 {
-    public Multiset<IOrganism> ContainedOrganisms { get; set; }
+    public Multiset<Organism> ContainedOrganisms { get; set; }
 
-    public event Action<Multiset<IOrganism>> OnOrganismsChanged;
+    public event Action<Multiset<Organism>> OnOrganismsChanged;
 
-    public void AddOrganism(IOrganism toAdd)
+    public void AddOrganism(Organism toAdd)
     {
         ContainedOrganisms.Add(toAdd);
         OnOrganismsChanged(ContainedOrganisms);
     }
 
-    public void RemoveOrganism(IOrganism toRemove)
+    public void RemoveOrganism(Organism toRemove)
     {
         ContainedOrganisms.Remove(toRemove);
         OnOrganismsChanged(ContainedOrganisms);
     }
 
-    public Ecosystem(int initialHumidity, int initialSoilRichness, int initialTemperature, params IOrganism[] organisms)
+    public Ecosystem(int initialHumidity, int initialSoilRichness, int initialTemperature, params Organism[] organisms)
     {
         InitialHumidity = initialHumidity;
         InitialSoilRichess = initialSoilRichness;
         InitialTemperature = initialTemperature;
-        ContainedOrganisms = new Multiset<IOrganism>(organisms);
+        ContainedOrganisms = new Multiset<Organism>(organisms);
     }
 
     private int InitialHumidity, InitialSoilRichess, InitialTemperature;
@@ -79,11 +79,11 @@ public class Ecosystem
         return GetProducedResources().MultisetDifference(new Multiset<Resource>(GetConsumedResources().Union(GetRequiredResources())));
     }
 
-    public HashSet<IOrganism> GetUnsupportedOrganisms()
+    public Multiset<Organism> GetUnsupportedOrganisms()
     {
         Multiset<Resource> missingResources = GetMissingResources();
 
-        return new HashSet<IOrganism>(ContainedOrganisms.Where(
+        return new Multiset<Organism>(ContainedOrganisms.Where(
             (org) => missingResources.Intersect(org.ConsumedResources).Count() > 0
             || missingResources.Intersect(org.RequiredResources).Count() > 0
             || !org.CanSurviveInClimateOf(this)));
