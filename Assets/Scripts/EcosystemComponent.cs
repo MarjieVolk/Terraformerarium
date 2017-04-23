@@ -14,9 +14,29 @@ public class EcosystemComponent : MonoBehaviour, IEcosystem
         }
     }
 
-    public int Humidity { get; }
-    public int SoilRichness { get; }
-    public int Temperature { get; }
+    public int Humidity
+    {
+        get
+        {
+            return ContainedOrganisms.Select((org) => org.HumidityMod).Sum();
+        }
+    }
+
+    public int SoilRichness
+    {
+        get
+        {
+            return ContainedOrganisms.Select((org) => org.SoilRichnessMod).Sum();
+        }
+    }
+
+    public int Temperature
+    {
+        get
+        {
+            return ContainedOrganisms.Select((org) => org.TemperatureMod).Sum();
+        }
+    }
 
     // Use this for initialization
     void Start () {
