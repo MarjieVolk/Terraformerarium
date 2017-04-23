@@ -10,12 +10,11 @@ public class OrganismIconUI : MonoBehaviour
     
     public EOrganism type;
     public EcosystemReference ecosystem;
-    
-    private CanvasGroup iconPrefab;
+    public Text countText;
 
     public void Start()
     {
-        iconPrefab = OrganismMap.Obj.GetIconPrefab(this.type);
+        Instantiate(OrganismMap.Obj.GetIconPrefab(this.type), this.transform).transform.SetAsFirstSibling();
         this.GetComponent<Button>().onClick.AddListener(this.ToggleNumber);
         this.RefreshUI();
     }
@@ -35,17 +34,7 @@ public class OrganismIconUI : MonoBehaviour
 
     private void RefreshUI()
     {
-        for (int i = 0; i < this.transform.childCount; i++)
-            Destroy(this.transform.GetChild(i).gameObject);
-
         int currentCount = ecosystem.Ecosystem.ContainedOrganisms.Where(org => org.Type == this.type).Count();
-        if (currentCount == 0)
-        {
-            Instantiate(iconPrefab, this.transform).alpha = 0.5f;
-        } else
-        {
-            for (int i = 0; i < currentCount; i++)
-                Instantiate(iconPrefab, this.transform);
-        }
+        countText.text = "x" + currentCount;
     }
 }
