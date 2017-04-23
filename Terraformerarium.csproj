@@ -104,10 +104,12 @@
     <Compile Include="Assets\Scripts\SceneFlow\SceneHelper.cs" />
     <Compile Include="Assets\Scripts\SceneFlow\SceneState.cs" />
     <Compile Include="Assets\Scripts\SceneFlow\SelectLevelButton.cs" />
+    <Compile Include="Assets\Scripts\SolutionSubmitter.cs" />
     <Compile Include="Assets\Scripts\UI\AvailableOrganismsUI.cs" />
     <Compile Include="Assets\Scripts\UI\EcosystemResourcesUI.cs" />
     <Compile Include="Assets\Scripts\UI\OrganismIconUI.cs" />
     <Compile Include="Assets\Scripts\UI\OrganismUI.cs" />
+    <Compile Include="Assets\Scripts\UI\EcosystemOrganismListUI.cs" />
     <Compile Include="Assets\Scripts\UI\ResourceUI.cs" />
     <Compile Include="Assets\Scripts\UI\ScreenResolutionEnforcer.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltips\HasOrganismTooltip.cs" />

@@ -33,7 +33,8 @@ public class TooltipWindow : MonoBehaviour {
 
     private void SetTooltip(GameObject content)
     {
-        Destroy(this.transform.GetChild(0).gameObject);
+        for (int i = 0; i < this.transform.childCount; i++)
+            Destroy(this.transform.GetChild(i).gameObject);
         content.transform.SetParent(this.transform, false);
     }
 }
