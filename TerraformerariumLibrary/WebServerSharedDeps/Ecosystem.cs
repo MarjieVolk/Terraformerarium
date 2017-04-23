@@ -22,7 +22,8 @@ public class Ecosystem
     {
         foreach (Organism o in toAdd)
             ContainedOrganisms.Add(o);
-        OnOrganismsChanged(ContainedOrganisms);
+        if (OnOrganismsChanged != null)
+            OnOrganismsChanged(ContainedOrganisms);
     }
 
     public void RemoveOrganism(Organism toRemove)
@@ -38,7 +39,8 @@ public class Ecosystem
     {
         foreach (Organism o in toRemove)
             ContainedOrganisms.Remove(o);
-        OnOrganismsChanged(ContainedOrganisms);
+        if (OnOrganismsChanged != null)
+            OnOrganismsChanged(ContainedOrganisms);
     }
 
     public Ecosystem(int initialHumidity, int initialSoilRichness, int initialTemperature, params Organism[] organisms)

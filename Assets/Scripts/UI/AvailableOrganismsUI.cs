@@ -5,6 +5,7 @@ using UnityEngine;
 public class AvailableOrganismsUI : MonoBehaviour {
 
     public OrganismIconUI organismIconPrefab;
+    public EcosystemReference ecosystem;
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +13,7 @@ public class AvailableOrganismsUI : MonoBehaviour {
         {
             OrganismIconUI instance = Instantiate(organismIconPrefab, this.transform);
             instance.type = organism.Type;
+            instance.ecosystem = ecosystem;
         }
 	}
 }

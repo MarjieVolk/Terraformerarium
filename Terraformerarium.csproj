@@ -88,6 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CreateHistogram.cs" />
+    <Compile Include="Assets\Scripts\EcosystemReference\CapsuleEcosystemReference.cs" />
+    <Compile Include="Assets\Scripts\EcosystemReference\EcosystemReference.cs" />
+    <Compile Include="Assets\Scripts\EcosystemReference\PlanetEcosystemReference.cs" />
     <Compile Include="Assets\Scripts\Leaderboard\LeaderboardLevelName.cs" />
     <Compile Include="Assets\Scripts\LibraryPopulator.cs" />
     <Compile Include="Assets\Scripts\OrganismMap.cs" />

@@ -119,5 +119,22 @@ public static class OrganismDefinitions
             ConsumedResources = new Multiset<Resource>(Resource.MEAT),
             ProducedResources = new Multiset<Resource>(Resource.MEAT)
         });
+
+        OrganismLibrary.RegisterOrganism(new Organism()
+        {
+            Type = EOrganism.COUGAR,
+            MinimumHumidity = MinVeryLow,
+            MaximumHumidity = MaxVeryHigh,
+            HumidityMod = 0,
+            MinimumTemperature = MinVeryLow,
+            MaximumTemperature = MaxNormal,
+            TemperatureMod = 1,
+            MinimumSoilRichness = MinVeryLow,
+            MaximumSoilRichness = MaxVeryHigh,
+            SoilRichnessMod = 0,
+            RequiredResources = new Multiset<Resource>(Resource.SHADE, Resource.ROCK),
+            ConsumedResources = new Multiset<Resource>(Resource.MEAT, Resource.MEAT),
+            ProducedResources = new Multiset<Resource>(Resource.POOP)
+        });
     }
 }
