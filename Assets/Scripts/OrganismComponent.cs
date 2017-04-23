@@ -4,43 +4,28 @@ using UnityEngine;
 
 public class OrganismComponent : MonoBehaviour, IOrganism
 {
-    //TODO editor init of these guys
-    public Multiset<Resource> ProducedResources { get; }
-    public Multiset<Resource> ConsumedResources { get; }
-    public Multiset<Resource> RequiredResources { get; }
+    private Organism Definition;
+    
+    public Multiset<Resource> ProducedResources { get { return Definition.ProducedResources; } }
+    public Multiset<Resource> ConsumedResources { get { return Definition.ConsumedResources; } }
+    public Multiset<Resource> RequiredResources { get { return Definition.RequiredResources; } }
 
-    [SerializeField]
-    private int minimumHumidity;
-    [SerializeField]
-    private int maximumHumidity;
-    [SerializeField]
-    private int humidityMod;
+    public int MinimumHumidity { get { return Definition.MinimumHumidity; } }
+    public int MaximumHumidity { get { return Definition.MaximumHumidity; } }
+    public int HumidityMod { get { return Definition.HumidityMod; } }
 
-    public int MinimumHumidity { get { return minimumHumidity; } }
-    public int MaximumHumidity { get { return maximumHumidity; } }
-    public int HumidityMod { get { return humidityMod; } }
+    public int MinimumSoilRichness { get { return Definition.MinimumSoilRichness; } }
+    public int MaximumSoilRichness { get { return Definition.MaximumSoilRichness; } }
+    public int SoilRichnessMod {  get { return Definition.SoilRichnessMod; } }
 
-    [SerializeField]
-    private int minimumSoilRichness;
-    [SerializeField]
-    private int maximumSoilRichness;
-    [SerializeField]
-    private int soilRichnessMod;
+    public int MinimumTemperature { get { return Definition.MinimumTemperature; } }
+    public int MaximumTemperature { get { return Definition.MaximumTemperature; } }
+    public int TemperatureMod { get { return Definition.TemperatureMod; } }
 
-    public int MinimumSoilRichness { get { return minimumSoilRichness; } }
-    public int MaximumSoilRichness { get { return maximumSoilRichness; } }
-    public int SoilRichnessMod {  get { return soilRichnessMod; } }
-
-    [SerializeField]
-    private int minimumTemperature;
-    [SerializeField]
-    private int maximumTemperature;
-    [SerializeField]
-    private int temperatureMod;
-
-    public int MinimumTemperature { get { return minimumTemperature; } }
-    public int MaximumTemperature { get { return maximumTemperature; } }
-    public int TemperatureMod { get { return temperatureMod; } }
+    public void SetDefinition(Organism definition)
+    {
+        Definition = definition;
+    }
 
     // Use this for initialization
     void Start () {
