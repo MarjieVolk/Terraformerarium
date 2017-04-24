@@ -28,7 +28,10 @@ public class OrganismIconUI : MonoBehaviour
         if (currentCount == MaxOfType)
             ecosystem.Ecosystem.RemoveOrganisms(capsuleOrganisms);
         else
+        {
             ecosystem.Ecosystem.AddOrganism(OrganismLibrary.GetOrganismFor(this.type));
+            PipeAnimator.Obj.PlayAnimation();
+        }
 
         SceneState.NotifyStateUpdated();
     }

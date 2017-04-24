@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Animations\SetAnimationValue.cs" />
     <Compile Include="Assets\CreateHistogram.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioPlayer.cs" />
     <Compile Include="Assets\Scripts\Audio\PlaySfx.cs" />
@@ -109,9 +110,11 @@
     <Compile Include="Assets\Scripts\UI\AvailableOrganismsUI.cs" />
     <Compile Include="Assets\Scripts\UI\EcosystemOrganismListUI.cs" />
     <Compile Include="Assets\Scripts\UI\EcosystemResourcesUI.cs" />
+    <Compile Include="Assets\Scripts\UI\Landscape\EcosystemLandscapeUI.cs" />
+    <Compile Include="Assets\Scripts\UI\Landscape\LandscapeSlot.cs" />
     <Compile Include="Assets\Scripts\UI\LaunchButton.cs" />
     <Compile Include="Assets\Scripts\UI\OrganismIconUI.cs" />
-    <Compile Include="Assets\Scripts\UI\OrganismUI.cs" />
+    <Compile Include="Assets\Scripts\UI\PipeAnimator.cs" />
     <Compile Include="Assets\Scripts\UI\ResourceUI.cs" />
     <Compile Include="Assets\Scripts\UI\ScreenResolutionEnforcer.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltips\HasOrganismTooltip.cs" />

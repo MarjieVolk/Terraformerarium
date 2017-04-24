@@ -9,7 +9,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlaySfx))]
 public class AddOrganismButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-
     [SerializeField] private Vector3 pressedOffest;
     private Transform contentParent;
 
@@ -17,7 +16,6 @@ public class AddOrganismButton : MonoBehaviour, IPointerDownHandler, IPointerUpH
     {
         this.GetComponent<Button>().enabled = false;
         this.contentParent = this.transform.GetChild(0);
-        //this.GetComponent<Button>().
     }
 
 	public void SetDisplay(OrganismIconUI display)

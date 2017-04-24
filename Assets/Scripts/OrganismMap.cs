@@ -7,7 +7,8 @@ public class OrganismMapping
 {
     public EOrganism type;
     public CanvasGroup iconPrefab;
-    public OrganismUI prefab;
+    public GameObject prefab;
+    public OrganismSlotType slotType;
 }
 
 public class OrganismMap : MonoBehaviour
@@ -30,7 +31,12 @@ public class OrganismMap : MonoBehaviour
         }
     }
 
-    public OrganismUI GetPrefab(EOrganism organism)
+    public OrganismSlotType GetSlotType(EOrganism organism)
+    {
+        return map[organism].slotType;
+    }
+
+    public GameObject GetPrefab(EOrganism organism)
     {
         return map[organism].prefab;
     }
