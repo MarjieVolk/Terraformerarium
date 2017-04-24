@@ -4,7 +4,7 @@ using System.Linq;
 
 public sealed class UserSolution
 {
-    private Level Level;
+    public Level Level;
     private IList<Ecosystem> Capsules { get; }
 
     public UserSolution(string level, IList<Ecosystem> capsules)
@@ -19,6 +19,11 @@ public sealed class UserSolution
     {
         // TODO parse something here
         throw new NotImplementedException();
+    }
+
+    public void AddCapsule(Ecosystem capsule)
+    {
+        Capsules.Add(capsule);
     }
 
     public Ecosystem GetFinalEcosystem()

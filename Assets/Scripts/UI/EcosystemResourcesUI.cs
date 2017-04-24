@@ -9,8 +9,8 @@ public class EcosystemResourcesUI : MonoBehaviour {
 	
     public void Start()
     {
+        SceneState.StateUpdated += Refresh;
         this.Refresh();
-        ecosystem.Ecosystem.OnOrganismsChanged += RefreshList;
     }
     
     public void RefreshList(Multiset<Organism> newList)
@@ -36,6 +36,6 @@ public class EcosystemResourcesUI : MonoBehaviour {
 
     public void OnDestroy()
     {
-        ecosystem.Ecosystem.OnOrganismsChanged -= RefreshList;
+        SceneState.StateUpdated -= Refresh;
     }
 }

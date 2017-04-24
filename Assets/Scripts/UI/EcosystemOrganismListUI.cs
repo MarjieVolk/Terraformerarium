@@ -9,21 +9,21 @@ public class EcosystemOrganismListUI : MonoBehaviour {
 	// Use this for initialization
 	protected void Start()
     {
-        ecosystem.Ecosystem.OnOrganismsChanged += Refresh;
-        this.Refresh(ecosystem.Ecosystem.ContainedOrganisms);
+        SceneState.StateUpdated += Refresh;
+        this.Refresh();
 	}
 	
-	private void Refresh(Multiset<Organism> newOrganisms)
+	public void Refresh()
     {
         for (int i = 0; i < this.transform.childCount; i++)
-            Destroy(this.transform.GetChild(i));
+            Destroy(this.transform.GetChild(i).gameObject);
 
-        foreach (Organism o in newOrganisms)
+        foreach (Organism o in ecosystem.Ecosystem.ContainedOrganisms)
             Instantiate(OrganismMap.Obj.GetIconPrefab(o.Type), this.transform);
     }
 
     protected void OnDestroy()
     {
-        ecosystem.Ecosystem.OnOrganismsChanged -= Refresh;
+        SceneState.StateUpdated -= Refresh;
     }
 }

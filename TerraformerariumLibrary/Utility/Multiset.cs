@@ -87,10 +87,12 @@ public class Multiset<T> : ICollection<T>
             if (current == 1)
             {
                 data.Remove(item);
+                this.size--;
                 return true;
             }
 
             data[item]--;
+            this.size--;
             return true;
         }
 
