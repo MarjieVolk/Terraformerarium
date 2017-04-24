@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class PlanetEcosystemReference : EcosystemReference
 {
-    public override Ecosystem Ecosystem { get { return SceneState.GetCurrentLevel().InitialPlanet; } }
+    public override Ecosystem Ecosystem { get { return SceneState.CurrentSolution.GetFinalEcosystem(); } }
 }

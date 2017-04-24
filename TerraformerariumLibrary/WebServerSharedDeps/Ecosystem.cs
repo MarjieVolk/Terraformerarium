@@ -7,40 +7,26 @@ public class Ecosystem
 {
     public Multiset<Organism> ContainedOrganisms { get; set; }
 
-    public event Action<Multiset<Organism>> OnOrganismsChanged;
-
     public void AddOrganism(Organism toAdd)
     {
         ContainedOrganisms.Add(toAdd);
-        if (OnOrganismsChanged != null)
-        {
-            OnOrganismsChanged(ContainedOrganisms);
-        }
     }
 
     public void AddOrganisms(IEnumerable<Organism> toAdd)
     {
         foreach (Organism o in toAdd)
             ContainedOrganisms.Add(o);
-        if (OnOrganismsChanged != null)
-            OnOrganismsChanged(ContainedOrganisms);
     }
 
     public void RemoveOrganism(Organism toRemove)
     {
         ContainedOrganisms.Remove(toRemove);
-        if (OnOrganismsChanged != null)
-        {
-            OnOrganismsChanged(ContainedOrganisms);
-        }
     }
 
     public void RemoveOrganisms(IEnumerable<Organism> toRemove)
     {
         foreach (Organism o in toRemove)
             ContainedOrganisms.Remove(o);
-        if (OnOrganismsChanged != null)
-            OnOrganismsChanged(ContainedOrganisms);
     }
 
     public Ecosystem(int initialHumidity, int initialSoilRichness, int initialTemperature, params Organism[] organisms)

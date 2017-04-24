@@ -18,6 +18,7 @@ public class OrganismIconUI : MonoBehaviour
         Instantiate(OrganismMap.Obj.GetIconPrefab(this.type), this.transform).transform.SetAsFirstSibling();
         this.GetComponent<HasOrganismTooltip>().type = this.type;
         this.GetComponent<Button>().onClick.AddListener(this.ToggleNumber);
+        SceneState.StateUpdated += RefreshUI;
         this.RefreshUI();
     }
 
@@ -31,7 +32,7 @@ public class OrganismIconUI : MonoBehaviour
         else
             ecosystem.Ecosystem.AddOrganism(OrganismLibrary.GetOrganismFor(this.type));
 
-        this.RefreshUI();
+        SceneState.NotifyStateUpdated();
     }
 
     private void RefreshUI()
