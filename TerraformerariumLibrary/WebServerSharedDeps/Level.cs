@@ -8,4 +8,5 @@ public class Level
     public Ecosystem InitialPlanet { get; set; }
     public IEnumerable<LevelGoal> LevelGoals { get; set; }
     public List<Organism> availableOrganisms { get; set; }
+    public string Name { get; set; }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 public static class OrganismLibrary
 {
-    private static Dictionary<EOrganism, Organism> Library = new Dictionary<EOrganism, Organism>();
+    private static readonly Dictionary<EOrganism, Organism> Library = new Dictionary<EOrganism, Organism>();
 
     public static Organism GetOrganismFor(EOrganism type)
     {

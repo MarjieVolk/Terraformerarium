@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
 public sealed class UserSolution
 {
@@ -13,18 +15,40 @@ public sealed class UserSolution
         this.Capsules = capsules;
     }
 
-    public UserSolution(string level, string solution) : this(level, ParseSolutionString(solution)) { }
-
-    private static IList<Ecosystem> ParseSolutionString(string solution)
+    public static UserSolution FromXml(string xml)
     {
-        // TODO parse something here
-        throw new NotImplementedException();
+        UserSolutionDto dto; 
+
+        XmlSerializer serializer = new XmlSerializer(typeof(UserSolutionDto));
+        using (StringReader writer = new StringReader(xml))
+        {
+            dto = (UserSolutionDto)serializer.Deserialize(writer);
+        }
+
+        var ecosystems = dto.Ecosystems.Select(
+                s => new Ecosystem(s.Organisms.Select(OrganismLibrary.GetOrganismFor).ToList())
+            ).ToList();
+
+        return new UserSolution(dto.LevelName, ecosystems);
     }
-
-    public string Serialize()
+    
+    public string ToXml()
     {
-        //TODO implement this
-        return "";
+        var dto = new UserSolutionDto
+        {
+            LevelName = Level == null ? "<unknown level>" : Level.Name,
+            Ecosystems = this.Capsules.Select(e => new EcosystemDto
+            {
+                Organisms = e.ContainedOrganisms.Select(o => o.Type).ToList()
+            }).ToList()
+        };  
+
+        XmlSerializer serializer = new XmlSerializer(typeof(UserSolutionDto));
+        using (StringWriter writer = new StringWriter())
+        {
+            serializer.Serialize(writer, dto);
+            return writer.ToString();
+        }
     }
 
     public void AddCapsule(Ecosystem capsule)

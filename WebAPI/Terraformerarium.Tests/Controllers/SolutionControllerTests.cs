@@ -1,9 +1,5 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 using Terraformerarium.Controllers;
 using Terraformerarium.Models;
 
@@ -35,18 +31,18 @@ namespace Terraformerarium.Tests.Controllers
             }
         }
 
-        private readonly Uri RootUrl = new Uri("http://terraformerarium.azurewebsites.net/");
+        //private readonly Uri RootUrl = new Uri("http://terraformerarium.azurewebsites.net/");
 
-        [Test]
-        public async void HttpSubmitSolution()
-        {
-            var client = new HttpClient(new HttpClientHandler()) {BaseAddress = RootUrl};
+        //[Test]
+        //public async void HttpSubmitSolution()
+        //{
+        //    var client = new HttpClient(new HttpClientHandler()) {BaseAddress = RootUrl};
 
-            //client.PostAsync("api/solution");
+        //    //client.PostAsync("api/solution");
 
-            JsonConvert
+        //    JsonConvert
 
 
-        }
+        //}
     }
 }

@@ -12,6 +12,9 @@ namespace Terraformerarium
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            LevelDefinitions.Populate();
+            OrganismDefinitions.Populate();
         }
     }
 }

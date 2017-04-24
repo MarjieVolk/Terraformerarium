@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web.DynamicData;
 using System.Web.Http;
 using Terraformerarium.Data;
 using Terraformerarium.Models;
@@ -16,7 +17,20 @@ namespace Terraformerarium.Controllers
         [HttpPost]
         public async Task<int> SubmitSolution(SubmitSolutionModel model)
         {
-            var score = SolutionEvaluator.Evaluate(model.SolutionData);
+            
+            var userSolution = UserSolution.FromXml(model.SolutionData);
+
+            if(!userSolution.IsLegal())
+            {
+                var msg =
+                    new HttpResponseMessage(HttpStatusCode.BadRequest)
+                    {
+                        ReasonPhrase = "Solution is not legal"
+                    };
+                throw new HttpResponseException(msg);
+            }
+
+            var score = userSolution.GetScore();
 
             using (var dbc = new ScoreDbContext())
             {
@@ -82,14 +96,5 @@ namespace Terraformerarium.Controllers
             }
         }
 
-        internal class SolutionEvaluator
-        {
-            private static readonly Random Random = new Random();
-
-            public static int Evaluate(string modelSolutionData)
-            {
-                return Random.Next(1, 10);
-            }
-        }
     }
 }

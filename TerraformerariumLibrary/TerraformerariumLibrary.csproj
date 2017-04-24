@@ -56,6 +56,7 @@
     <Compile Include="WebServerSharedDeps\OrganismDefinitions.cs" />
     <Compile Include="WebServerSharedDeps\OrganismLibrary.cs" />
     <Compile Include="WebServerSharedDeps\Resource.cs" />
+    <Compile Include="WebServerSharedDeps\LevelEvaluation\SolutionDTOs\UserSolutionDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

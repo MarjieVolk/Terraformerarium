@@ -37,19 +37,24 @@ public class Ecosystem
         ContainedOrganisms = new Multiset<Organism>(organisms);
     }
 
-    public Ecosystem(IEnumerable<Organism> organisms) : this(0, 0, 0, organisms.ToArray()) { }
+    public Ecosystem(IEnumerable<Organism> organisms) : this(0, 0, 0, organisms.ToArray())
+    {
+        ContainedOrganisms = new Multiset<Organism>();
+    }
 
-    public Ecosystem(Ecosystem other) : this(other.InitialHumidity, other.InitialSoilRichess, other.InitialTemperature, other.ContainedOrganisms.ToArray()) { }
+    public Ecosystem(Ecosystem other) : this(other.InitialHumidity, other.InitialSoilRichess, other.InitialTemperature,
+        other.ContainedOrganisms.ToArray())
+    {
+        ContainedOrganisms = new Multiset<Organism>();
+    }
 
     private int InitialHumidity, InitialSoilRichess, InitialTemperature;
-
     public int Humidity {
         get
         {
             return InitialHumidity + ContainedOrganisms.Select((org) => org.HumidityMod).Sum();
         }
     }
-
     public int SoilRichness
     {
         get
@@ -57,7 +62,6 @@ public class Ecosystem
             return InitialSoilRichess + ContainedOrganisms.Select((org) => org.SoilRichnessMod).Sum();
         }
     }
-
     public int Temperature
     {
         get
@@ -101,8 +105,8 @@ public class Ecosystem
         Multiset<Resource> missingResources = GetMissingResources();
 
         return new Multiset<Organism>(ContainedOrganisms.Where(
-            (org) => missingResources.Intersect(org.ConsumedResources).Count() > 0
-            || missingResources.Intersect(org.RequiredResources).Count() > 0
+            (org) => missingResources.Intersect(org.ConsumedResources).Any()
+            || missingResources.Intersect(org.RequiredResources).Any()
             || !org.CanSurviveInClimateOf(this)));
     }
 }

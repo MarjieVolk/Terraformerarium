@@ -161,6 +161,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TerraformerariumLibrary\TerraformerariumLibrary.csproj">
+      <Project>{22e7b426-547e-49c3-88ef-e64a26ccc8bf}</Project>
+      <Name>TerraformerariumLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Terraformerarium.Data\Terraformerarium.Data.csproj">
       <Project>{e6e3e410-b6ab-4710-8361-1750ae22df54}</Project>
       <Name>Terraformerarium.Data</Name>
