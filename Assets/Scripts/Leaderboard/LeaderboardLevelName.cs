@@ -9,6 +9,6 @@ public class LeaderboardLevelName : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        this.GetComponent<Text>().text = SceneState.CurrentLevel;
+        this.GetComponent<Text>().text = SceneState.NextLeaderboardLevel;
     }
 }
