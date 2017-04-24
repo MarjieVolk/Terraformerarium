@@ -6,12 +6,16 @@ using UnityEngine;
 public class EcosystemLandscapeUI : MonoBehaviour {
 
     [SerializeField] private EcosystemReference ecosystem;
-    private IEnumerable<LandscapeSlot> slots;
+    private IList<LandscapeSlot> slots;
+    private System.Random rng;
 
 	// Use this for initialization
 	void Start () {
         SceneState.StateUpdated += Refresh;
-        slots = this.GetSlots();
+        slots = this.GetSlots().ToList();
+
+        rng = new System.Random();
+        Shuffle(slots);
     }
 
     private IEnumerable<LandscapeSlot> GetSlots()
@@ -39,6 +43,19 @@ public class EcosystemLandscapeUI : MonoBehaviour {
             {
                 slotEnumer.Current.SetContents(OrganismMap.Obj.GetPrefab(organismEnumer.Current.Type));
             }
+        }
+    }
+
+    private void Shuffle<T>(IList<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
         }
     }
 }
