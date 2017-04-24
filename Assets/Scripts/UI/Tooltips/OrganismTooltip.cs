@@ -24,7 +24,7 @@ public class OrganismTooltip : MonoBehaviour {
         foreach (Resource consumes in organism.ConsumedResources)
             Instantiate(ResourceMap.Obj.GetResourcePrefab(consumes), consumesIconParent.transform).Init(ResourceMode.Consumed);
 
-        foreach (Resource requires in organism.ConsumedResources)
+        foreach (Resource requires in organism.RequiredResources)
             Instantiate(ResourceMap.Obj.GetResourcePrefab(requires), requiresIconParent.transform).Init(ResourceMode.Required);
     }
 }

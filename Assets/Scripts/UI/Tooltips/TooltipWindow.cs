@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioPlayer))]
 public class TooltipWindow : MonoBehaviour {
 
     public static TooltipWindow Obj { get; private set; }
 
+    [SerializeField] private AudioClip showSfx;
+    [SerializeField] private AudioClip hideSfx;
     [SerializeField] private GameObject defaultTooltip;
 
     private HasTooltip owner;
-	
+
+    private AudioPlayer Player { get { return this.GetComponent<AudioPlayer>(); } }
+
     protected void Awake()
     {
         Obj = this;
@@ -20,6 +25,7 @@ public class TooltipWindow : MonoBehaviour {
     {
         SetTooltip(content);
         this.owner = owner;
+        this.Player.PlayClip(showSfx);
     }
 
     public void ClearTooltip(HasTooltip owner)
@@ -28,6 +34,7 @@ public class TooltipWindow : MonoBehaviour {
         {
             SetTooltip(Instantiate(defaultTooltip));
             this.owner = null;
+            this.Player.PlayClip(hideSfx);
         }
     }
 

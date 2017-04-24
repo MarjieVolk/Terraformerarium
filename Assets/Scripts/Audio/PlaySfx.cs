@@ -4,53 +4,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioPlayer))]
 public class PlaySfx : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
-    private const float MinPitch = 0.9f;
-    private const float MaxPitch = 1.1f;
-
     [SerializeField] private AudioClip mouseEnter;
     [SerializeField] private AudioClip mouseExit;
     [SerializeField] private AudioClip mouseDown;
     [SerializeField] private AudioClip mouseUp;
-    private System.Random random;
-
-    private AudioSource Player { get { return this.GetComponent<AudioSource>(); } }
-
-    protected void Start()
-    {
-        this.random = new System.Random();
-    }
+    
+    private AudioPlayer Player { get { return this.GetComponent<AudioPlayer>(); } }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (mouseEnter != null)
-            this.PlayClip(mouseEnter);
+        this.Player.PlayClip(mouseEnter);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (mouseExit != null)
-            this.PlayClip(mouseExit);
+        this.Player.PlayClip(mouseExit);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (this.mouseUp != null)
-            this.PlayClip(mouseUp);
+        this.Player.PlayClip(mouseUp);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (this.mouseDown != null)
-            this.PlayClip(mouseDown);
-    }
-
-    private void PlayClip(AudioClip clip)
-    {
-        this.Player.clip = clip;
-        this.Player.pitch = (float)(random.NextDouble() * (MaxPitch - MinPitch)) + MinPitch;
-        this.Player.Play();
+        this.Player.PlayClip(mouseDown);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EcosystemOrganismListUI : MonoBehaviour {
 
     [SerializeField] private EcosystemReference ecosystem;
+    [SerializeField] private OrganismTooltip organismTooltip;
 
 	// Use this for initialization
 	protected void Start()
@@ -19,7 +20,12 @@ public class EcosystemOrganismListUI : MonoBehaviour {
             Destroy(this.transform.GetChild(i).gameObject);
 
         foreach (Organism o in ecosystem.Ecosystem.ContainedOrganisms)
-            Instantiate(OrganismMap.Obj.GetIconPrefab(o.Type), this.transform);
+        {
+            GameObject instance = Instantiate(OrganismMap.Obj.GetIconPrefab(o.Type), this.transform).gameObject;
+            HasOrganismTooltip hasTooltip = instance.AddComponent<HasOrganismTooltip>();
+            hasTooltip.type = o.Type;
+            hasTooltip.tooltipPrefab = organismTooltip;
+        }
     }
 
     protected void OnDestroy()
