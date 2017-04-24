@@ -20,6 +20,8 @@ public class SolutionSubmitter : MonoBehaviour {
         UnityWebRequest solutionSubmitRequest = UnityWebRequest.Post("http://terraformerarium.azurewebsites.net/api/solution", formData);
         // get the histogram
         UnityWebRequest histogramGetRequest = new UnityWebRequest("http://terraformerarium.azurewebsites.net/api/solution/summary?levelKey=" + level);
+        histogramGetRequest.SetRequestHeader("Accept", "application/json");
+        histogramGetRequest.downloadHandler = new DownloadHandlerBuffer();
 
         Debug.Log("Submitting requests.");
         AsyncOperation solutionSubmitOperation = solutionSubmitRequest.Send();
