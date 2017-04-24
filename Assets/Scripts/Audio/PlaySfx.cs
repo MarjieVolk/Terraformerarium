@@ -26,11 +26,13 @@ public class PlaySfx : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        this.Player.PlayClip(mouseUp);
+        if (eventData.button == PointerEventData.InputButton.Left)
+            this.Player.PlayClip(mouseUp);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        this.Player.PlayClip(mouseDown);
+        if (eventData.button == PointerEventData.InputButton.Left)
+            this.Player.PlayClip(mouseDown);
     }
 }

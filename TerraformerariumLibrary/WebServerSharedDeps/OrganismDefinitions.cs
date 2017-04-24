@@ -151,7 +151,7 @@ public static class OrganismDefinitions
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(Resource.ROCK),
             ConsumedResources = new Multiset<Resource>(Resource.EGGSES),
-            ProducedResources = new Multiset<Resource>()
+            ProducedResources = new Multiset<Resource>(Resource.DISEASE)
         });
 
         OrganismLibrary.RegisterOrganism(new Organism()
