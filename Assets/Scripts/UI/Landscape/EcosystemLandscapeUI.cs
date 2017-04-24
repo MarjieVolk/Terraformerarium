@@ -33,17 +33,11 @@ public class EcosystemLandscapeUI : MonoBehaviour {
         foreach (IGrouping<OrganismSlotType, Organism> group in groups)
         {
             IEnumerable<LandscapeSlot> validSlots = this.slots.Where(slot => slot.Type == group.Key);
-            if (group.Count() <= validSlots.Count())
+            IEnumerator<LandscapeSlot> slotEnumer = validSlots.GetEnumerator();
+            IEnumerator<Organism> organismEnumer = group.GetEnumerator();
+            while (slotEnumer.MoveNext() && organismEnumer.MoveNext())
             {
-                IEnumerator<LandscapeSlot> slotEnumer = validSlots.GetEnumerator();
-                IEnumerator<Organism> organismEnumer = group.GetEnumerator();
-                while (slotEnumer.MoveNext() && organismEnumer.MoveNext())
-                {
-                    slotEnumer.Current.SetContents(OrganismMap.Obj.GetPrefab(organismEnumer.Current.Type));
-                }
-            } else
-            {
-                // TODO Group by organism type if possible, elsewise...??
+                slotEnumer.Current.SetContents(OrganismMap.Obj.GetPrefab(organismEnumer.Current.Type));
             }
         }
     }
