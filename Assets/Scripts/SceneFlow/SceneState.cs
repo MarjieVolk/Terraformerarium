@@ -30,6 +30,8 @@ public static class SceneState
 
     public static string CurrentLevel { get { return SceneManager.GetActiveScene().name; } }
 
+    public static string NextLeaderboardLevel { get; set; }
+
     public static Level GetCurrentLevel()
     {
         return LevelLibrary.GetLevelFor(CurrentLevel);

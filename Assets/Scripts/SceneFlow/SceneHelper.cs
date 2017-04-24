@@ -30,6 +30,7 @@ public class SceneHelper : MonoBehaviour {
 
     public void GoToLeaderboard(string level)
     {
+        SceneState.NextLeaderboardLevel = level;
         SceneManager.LoadScene("Leaderboard");
     }
 }
