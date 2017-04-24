@@ -7,9 +7,7 @@ public class SolutionSubmitter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        UserSolution solution = SceneState.CurrentSolution;
-        // TODO don't hardcode Level1
-        StartCoroutine(Submit("Level1", solution.Serialize()));
+        StartCoroutine(Submit(SceneState.NextLeaderboardLevel, SceneState.CurrentSolution.Serialize()));
 	}
 
     IEnumerator Submit(string level, string solution)
@@ -22,6 +20,8 @@ public class SolutionSubmitter : MonoBehaviour {
         UnityWebRequest solutionSubmitRequest = UnityWebRequest.Post("http://terraformerarium.azurewebsites.net/api/solution", formData);
         // get the histogram
         UnityWebRequest histogramGetRequest = new UnityWebRequest("http://terraformerarium.azurewebsites.net/api/solution/summary?levelKey=" + level);
+        histogramGetRequest.SetRequestHeader("Accept", "application/json");
+        histogramGetRequest.downloadHandler = new DownloadHandlerBuffer();
 
         Debug.Log("Submitting requests.");
         AsyncOperation solutionSubmitOperation = solutionSubmitRequest.Send();
