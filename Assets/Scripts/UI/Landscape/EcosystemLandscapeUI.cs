@@ -6,12 +6,16 @@ using UnityEngine;
 public class EcosystemLandscapeUI : MonoBehaviour {
 
     [SerializeField] private EcosystemReference ecosystem;
-    private IEnumerable<LandscapeSlot> slots;
+    private IList<LandscapeSlot> slots;
+    private System.Random rng;
 
 	// Use this for initialization
 	void Start () {
         SceneState.StateUpdated += Refresh;
-        slots = this.GetSlots();
+        slots = this.GetSlots().ToList();
+
+        rng = new System.Random();
+        Shuffle(slots);
     }
 
     private IEnumerable<LandscapeSlot> GetSlots()
@@ -33,18 +37,25 @@ public class EcosystemLandscapeUI : MonoBehaviour {
         foreach (IGrouping<OrganismSlotType, Organism> group in groups)
         {
             IEnumerable<LandscapeSlot> validSlots = this.slots.Where(slot => slot.Type == group.Key);
-            if (group.Count() <= validSlots.Count())
+            IEnumerator<LandscapeSlot> slotEnumer = validSlots.GetEnumerator();
+            IEnumerator<Organism> organismEnumer = group.GetEnumerator();
+            while (slotEnumer.MoveNext() && organismEnumer.MoveNext())
             {
-                IEnumerator<LandscapeSlot> slotEnumer = validSlots.GetEnumerator();
-                IEnumerator<Organism> organismEnumer = group.GetEnumerator();
-                while (slotEnumer.MoveNext() && organismEnumer.MoveNext())
-                {
-                    slotEnumer.Current.SetContents(OrganismMap.Obj.GetPrefab(organismEnumer.Current.Type));
-                }
-            } else
-            {
-                // TODO Group by organism type if possible, elsewise...??
+                slotEnumer.Current.SetContents(OrganismMap.Obj.GetPrefab(organismEnumer.Current.Type));
             }
+        }
+    }
+
+    private void Shuffle<T>(IList<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
         }
     }
 }
