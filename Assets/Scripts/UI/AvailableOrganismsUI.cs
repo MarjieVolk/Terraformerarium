@@ -9,11 +9,13 @@ public class AvailableOrganismsUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        foreach (Organism organism in SceneState.GetCurrentLevel().availableOrganisms)
+        List<Organism> organisms = SceneState.GetCurrentLevel().availableOrganisms;
+        for (int i = 0; i < organisms.Count; i++)
         {
-            OrganismIconUI instance = Instantiate(organismIconPrefab, this.transform);
-            instance.type = organism.Type;
+            OrganismIconUI instance = Instantiate(organismIconPrefab);
+            instance.type = organisms[i].Type;
             instance.ecosystem = ecosystem;
+            this.transform.GetChild(i).GetComponent<AddOrganismButton>().SetDisplay(instance);
         }
 	}
 }
