@@ -7,7 +7,9 @@ public class SolutionSubmitter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(Submit("Level1", "asdf"));
+        UserSolution solution = SceneState.CurrentSolution;
+        // TODO don't hardcode Level1
+        StartCoroutine(Submit("Level1", solution.Serialize()));
 	}
 
     IEnumerator Submit(string level, string solution)

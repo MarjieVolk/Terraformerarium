@@ -21,6 +21,12 @@ public sealed class UserSolution
         throw new NotImplementedException();
     }
 
+    public string Serialize()
+    {
+        //TODO implement this
+        return "";
+    }
+
     public void AddCapsule(Ecosystem capsule)
     {
         Capsules.Add(capsule);

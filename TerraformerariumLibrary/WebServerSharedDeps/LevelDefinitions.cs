@@ -24,8 +24,7 @@ public class LevelDefinitions
             InitialPlanet = NewEcosystem(0, 0, 0, EOrganism.COUGAR),
             availableOrganisms = Organisms(EOrganism.COW, EOrganism.SNAKE, EOrganism.FOX, EOrganism.HEN).ToList(),
             LevelGoals = new List<LevelGoal>() {
-                new ResourceLevelGoal(Resource.MEAT, Operator.GreaterThanOrEqual, 1),
-                new EnvironmentLevelGoal(EnvironmentAttribute.Temperature, Operator.LessThanOrEqual, -2)
+                new ResourceLevelGoal(Resource.POOP, Operator.Equals, 0)
             }
         });
     }

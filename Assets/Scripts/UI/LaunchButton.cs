@@ -15,12 +15,21 @@ public class LaunchButton : MonoBehaviour {
     private void LaunchCapsule()
     {
         Debug.Log("Launch clicked.");
-        // TODO check if the capsule is a self-sustaining ecosystem
+        // check if the capsule is a self-sustaining ecosystem
+        if (SceneState.CurrentCapsule.GetUnsupportedOrganisms().Count > 0)
+        {
+            return;
+        }
         
         SceneState.CurrentSolution.AddCapsule(SceneState.CurrentCapsule);
         SceneState.RefreshCurrentCapsule();
 
-        // TODO reset the UIs?
+        // reset the UIs
         SceneState.NotifyStateUpdated();
+
+        if (SceneState.CurrentSolution.MeetsGoalRequirements())
+        {
+            SceneHelper.Obj.GoToLeaderboard(SceneState.CurrentLevel);
+        }
     }
 }
