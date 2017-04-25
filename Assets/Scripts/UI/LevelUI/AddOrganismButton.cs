@@ -12,7 +12,7 @@ public class AddOrganismButton : MonoBehaviour, IPointerDownHandler, IPointerUpH
     [SerializeField] private Vector3 pressedOffest;
     private Transform contentParent;
 
-    protected void Start()
+    protected void Awake()
     {
         this.GetComponent<Button>().enabled = false;
         this.contentParent = this.transform.GetChild(0);

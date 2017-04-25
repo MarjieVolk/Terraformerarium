@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class LaunchButton : MonoBehaviour {
 
+    private int animationIndex = 0;
+    private Animator animator;
+
 	// Use this for initialization
 	void Start () {
         SceneState.ResetSolution();
@@ -31,7 +34,36 @@ public class LaunchButton : MonoBehaviour {
             UIManager.Obj.OpenMessagePopup(currentOrganisms + " present.  Max allowed is " + maxOrganisms, "Too many organisms!");
             return;
         }
-        
+
+        PlayNextAnimation();
+    }
+
+    private void PlayNextAnimation()
+    {
+        if (this.animator != null)
+            animator.GetBehaviour<AnimationEventBroadcaster>().StateEntered -= PlayNextAnimation;
+
+        while (animationIndex < this.transform.childCount && this.transform.GetChild(animationIndex).GetComponent<Animator>() == null)
+            animationIndex++;
+
+        if (animationIndex < this.transform.childCount)
+        {
+            animator = this.transform.GetChild(animationIndex).GetComponent<Animator>();
+            animator.GetBehaviour<AnimationEventBroadcaster>().StateEntered += PlayNextAnimation;
+            animator.SetBool("play", true);
+
+            animationIndex++;
+        } else
+        {
+            this.DoLaunch();
+        }
+    }
+
+    private void DoLaunch()
+    {
+        this.animationIndex = 0;
+        this.animator = null;
+
         SceneState.CurrentSolution.AddCapsule(SceneState.CurrentCapsule);
         SceneState.RefreshCurrentCapsule();
 

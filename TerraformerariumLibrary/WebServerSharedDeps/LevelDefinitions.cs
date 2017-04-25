@@ -47,6 +47,28 @@ public class LevelDefinitions
                 new ResourceLevelGoal(Resource.DISEASE, Operator.Equals, 0)
             }
         });
+
+        // TODO
+        LevelLibrary.RegisterLevel("Level4", new Level()
+        {
+            InitialPlanet = NewEcosystem(0, 0, High, EOrganism.SNAKE, EOrganism.ROCK, EOrganism.BLUE_JAY, EOrganism.APPLE_TREE, EOrganism.MOSQUITO),
+            MaxOrganismsPerCapsule = 5,
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.WHEAT, EOrganism.FOX).ToList(),
+            LevelGoals = new List<LevelGoal>() {
+                new ResourceLevelGoal(Resource.DISEASE, Operator.Equals, 0)
+            }
+        });
+
+        // TODO
+        LevelLibrary.RegisterLevel("Level5", new Level()
+        {
+            InitialPlanet = NewEcosystem(0, 0, High, EOrganism.SNAKE, EOrganism.ROCK, EOrganism.BLUE_JAY, EOrganism.APPLE_TREE, EOrganism.MOSQUITO),
+            MaxOrganismsPerCapsule = 5,
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.WHEAT, EOrganism.FOX).ToList(),
+            LevelGoals = new List<LevelGoal>() {
+                new ResourceLevelGoal(Resource.DISEASE, Operator.Equals, 0)
+            }
+        });
     }
 
     private static IEnumerable<Organism> Organisms(params EOrganism[] organisms)
