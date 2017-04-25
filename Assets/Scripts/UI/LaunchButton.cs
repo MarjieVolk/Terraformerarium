@@ -19,7 +19,16 @@ public class LaunchButton : MonoBehaviour {
         if (unsupported.Count > 0)
         {
             string unsupportedString = string.Join(", ", unsupported.Select(org => org.Type.DisplayName()).ToArray());
-            UIManager.Obj.OpenMessagePopup("Invalid capsule! " + unsupportedString + " would die!");
+            UIManager.Obj.OpenMessagePopup(unsupportedString + " would die!", "Invalid capsule!");
+            return;
+        }
+
+        // Check if number of organisms in capsule is valid
+        int currentOrganisms = SceneState.CurrentCapsule.ContainedOrganisms.Count;
+        int maxOrganisms = SceneState.GetCurrentLevel().MaxOrganismsPerCapsule;
+        if (currentOrganisms > maxOrganisms)
+        {
+            UIManager.Obj.OpenMessagePopup(currentOrganisms + " present.  Max allowed is " + maxOrganisms, "Too many organisms!");
             return;
         }
         

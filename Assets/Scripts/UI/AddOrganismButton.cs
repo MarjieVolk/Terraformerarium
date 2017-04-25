@@ -24,7 +24,7 @@ public class AddOrganismButton : MonoBehaviour, IPointerDownHandler, IPointerUpH
         this.GetComponent<PlaySfx>().enabled = display != null;
         this.GetComponent<Button>().onClick.RemoveAllListeners();
         for (int i = 0; i < this.contentParent.childCount; i++)
-            Destroy(this.contentParent.GetChild(i));
+            Destroy(this.contentParent.GetChild(i).gameObject);
 
         if (display != null)
         {

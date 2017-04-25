@@ -9,4 +9,5 @@ public class Level
     public IEnumerable<LevelGoal> LevelGoals { get; set; }
     public List<Organism> availableOrganisms { get; set; }
     public string Name { get; set; }
+    public int MaxOrganismsPerCapsule { get; set; }
 }

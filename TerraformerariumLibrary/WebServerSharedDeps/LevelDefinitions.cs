@@ -12,19 +12,13 @@ public class LevelDefinitions
 
     private static void PopulateRandomLevel()
     {
-        LevelLibrary.RegisterLevel("cowLevel", new Level()
-        {
-            InitialPlanet = new Ecosystem(0, 0, 0, OrganismLibrary.GetOrganismFor(EOrganism.COW)),
-            availableOrganisms = new List<Organism>() { OrganismLibrary.GetOrganismFor(EOrganism.COW) },
-            LevelGoals = new List<LevelGoal>() { new ResourceLevelGoal(Resource.MEAT, Operator.GreaterThanOrEqual, 2)}
-        });
-
         LevelLibrary.RegisterLevel("Level1", new Level()
         {
-            InitialPlanet = NewEcosystem(0, 0, 0, EOrganism.COUGAR),
-            availableOrganisms = Organisms(EOrganism.COW, EOrganism.SNAKE, EOrganism.FOX, EOrganism.HEN, EOrganism.APPLE_TREE, EOrganism.MOSQUITO, EOrganism.BLUE_JAY, EOrganism.GRASS).ToList(),
+            InitialPlanet = NewEcosystem(0, 0, 0),
+            MaxOrganismsPerCapsule = 5,
+            availableOrganisms = Organisms(EOrganism.COW).ToList(),
             LevelGoals = new List<LevelGoal>() {
-                new ResourceLevelGoal(Resource.POOP, Operator.Equals, 0)
+                new OrganismLevelGoal(EOrganism.COW, Operator.GreaterThanOrEqual, 1)
             }
         });
     }
