@@ -17,7 +17,8 @@ public enum EOrganism
     FOX,
     COUGAR,
     HEN,
-    SNAKE
+    SNAKE,
+    ROCK
 }
 
 public static class EOrganismExtensions

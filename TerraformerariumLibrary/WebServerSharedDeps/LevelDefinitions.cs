@@ -16,9 +16,19 @@ public class LevelDefinitions
         {
             InitialPlanet = NewEcosystem(0, 0, 0),
             MaxOrganismsPerCapsule = 5,
-            availableOrganisms = Organisms(EOrganism.COW).ToList(),
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.LETTUCE).ToList(),
             LevelGoals = new List<LevelGoal>() {
-                new OrganismLevelGoal(EOrganism.COW, Operator.GreaterThanOrEqual, 1)
+                new ResourceLevelGoal(Resource.POOP, Operator.GreaterThanOrEqual, 1)
+            }
+        });
+
+        LevelLibrary.RegisterLevel("Level2", new Level()
+        {
+            InitialPlanet = NewEcosystem(0, 0, OrganismDefinitions.MaxHigh),
+            MaxOrganismsPerCapsule = 5,
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.WHEAT, EOrganism.FOX).ToList(),
+            LevelGoals = new List<LevelGoal>() {
+                new OrganismLevelGoal(EOrganism.COW, Operator.GreaterThanOrEqual, 2)
             }
         });
     }

@@ -9,6 +9,7 @@ public class OrganismCountIndicator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SceneState.StateUpdated += Refresh;
+        Refresh();
 	}
 	
 	private void Refresh()
