@@ -18,6 +18,10 @@ public class TooltipWindow : MonoBehaviour {
     protected void Awake()
     {
         Obj = this;
+    }
+
+    protected void Start()
+    {
         Instantiate(defaultTooltip, this.transform);
     }
 
