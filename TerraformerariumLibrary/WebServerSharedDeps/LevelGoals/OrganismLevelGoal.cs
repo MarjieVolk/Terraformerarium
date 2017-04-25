@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-[Evaluator(typeof(ResourceLevelGoalEvaluator))]
+[Evaluator(typeof(OrganismLevelGoalEvaluator))]
 public sealed class OrganismLevelGoal : LevelGoal
 {
     public EOrganism Organism { get; }
