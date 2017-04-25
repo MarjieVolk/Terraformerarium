@@ -22,7 +22,7 @@ public class LevelDefinitions
         {
             InitialPlanet = NewEcosystem(0, 0, Normal),
             MaxOrganismsPerCapsule = 5,
-            availableOrganisms = Organisms(EOrganism.COW, EOrganism.LETTUCE, EOrganism.WHEAT).ToList(),
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.WHEAT, EOrganism.LETTUCE).ToList(),
             LevelGoals = new List<LevelGoal>() {
                 new ResourceLevelGoal(Resource.POOP, Operator.GreaterThanOrEqual, 2)
             }
@@ -32,7 +32,7 @@ public class LevelDefinitions
         {
             InitialPlanet = NewEcosystem(0, 0, High),
             MaxOrganismsPerCapsule = 5,
-            availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.WHEAT, EOrganism.FOX).ToList(),
+            availableOrganisms = Organisms(EOrganism.COW, EOrganism.FOX, EOrganism.COUGAR, EOrganism.HEN, EOrganism.GRASS, EOrganism.WHEAT).ToList(),
             LevelGoals = new List<LevelGoal>() {
                 new OrganismLevelGoal(EOrganism.COW, Operator.GreaterThanOrEqual, 2)
             }

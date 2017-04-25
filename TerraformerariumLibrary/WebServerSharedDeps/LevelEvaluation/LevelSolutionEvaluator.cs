@@ -28,7 +28,7 @@ public sealed class LevelSolutionEvaluator : ISolutionEvaluator
         foreach (var goal in this.goals)
         {
             // Could cache these to avoid recreating
-            var goalEvaluatorType = goal.GetType().GetCustomAttributes(typeof(Evaluator), true)
+            Type goalEvaluatorType = goal.GetType().GetCustomAttributes(typeof(Evaluator), true)
                 .OfType<Evaluator>()
                 .Select(attr => attr.EvaluatorType)
                 .Single();

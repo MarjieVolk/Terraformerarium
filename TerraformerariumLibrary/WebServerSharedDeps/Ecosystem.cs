@@ -48,7 +48,7 @@ public class Ecosystem
         ContainedOrganisms = new Multiset<Organism>();
     }
 
-    private int InitialHumidity, InitialSoilRichess, InitialTemperature;
+    public int InitialHumidity, InitialSoilRichess, InitialTemperature;
     public int Humidity {
         get
         {
