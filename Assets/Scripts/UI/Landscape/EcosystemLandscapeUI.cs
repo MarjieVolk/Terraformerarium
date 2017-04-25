@@ -58,4 +58,9 @@ public class EcosystemLandscapeUI : MonoBehaviour {
             list[n] = value;
         }
     }
+
+    protected void OnDestroy()
+    {
+        SceneState.StateUpdated -= Refresh;
+    }
 }

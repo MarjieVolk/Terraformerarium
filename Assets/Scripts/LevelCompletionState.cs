@@ -16,8 +16,12 @@ public static class LevelCompletionState
         return PlayerPrefs.GetInt(NumCompletedKey);
     }
 
-    public static void CompleteLevel()
+    public static void CompleteLevel(string levelName, int score)
     {
-        PlayerPrefs.SetInt(NumCompletedKey, NumberOfLevelsCompleted() + 1);
+        if (!PlayerPrefs.HasKey(levelName))
+        {
+            PlayerPrefs.SetInt(NumCompletedKey, NumberOfLevelsCompleted() + 1);
+            PlayerPrefs.SetInt(levelName, score);
+        }
     }
 }

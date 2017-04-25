@@ -43,6 +43,7 @@
     <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\EnvironmentLevelGoalEvaluator.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\Evaluator.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\LevelGoalEvaluator.cs" />
+    <Compile Include="WebServerSharedDeps\LevelGoals\OrganismLevelGoal.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoals\ResourceLevelGoal.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\ResourceLevelGoalEvaluator.cs" />
     <Compile Include="WebServerSharedDeps\LevelLibrary.cs" />

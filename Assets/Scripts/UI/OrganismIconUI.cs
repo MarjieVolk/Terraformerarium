@@ -41,4 +41,9 @@ public class OrganismIconUI : MonoBehaviour
         int currentCount = ecosystem.Ecosystem.ContainedOrganisms.Where(org => org.Type == this.type).Count();
         countText.text = "x" + currentCount;
     }
+
+    protected void OnDestroy()
+    {
+        SceneState.StateUpdated -= RefreshUI;
+    }
 }

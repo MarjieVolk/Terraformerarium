@@ -13,7 +13,7 @@ public class OrganismTooltip : MonoBehaviour {
     
 	public void SetOrganism(EOrganism type)
     {
-        organismName.text = type.ToString().Replace('_', ' ');
+        organismName.text = type.DisplayName();
         Instantiate(OrganismMap.Obj.GetIconPrefab(type), iconParent.transform);
 
         Organism organism = OrganismLibrary.GetOrganismFor(type);

@@ -19,3 +19,11 @@ public enum EOrganism
     HEN,
     SNAKE
 }
+
+public static class EOrganismExtensions
+{
+    public static string DisplayName(this EOrganism o)
+    {
+        return o.ToString().Replace('_', ' ');
+    }
+}

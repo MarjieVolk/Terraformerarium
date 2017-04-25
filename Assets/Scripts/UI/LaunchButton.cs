@@ -14,10 +14,12 @@ public class LaunchButton : MonoBehaviour {
 
     private void LaunchCapsule()
     {
-        Debug.Log("Launch clicked.");
         // check if the capsule is a self-sustaining ecosystem
-        if (SceneState.CurrentCapsule.GetUnsupportedOrganisms().Count > 0)
+        Multiset<Organism> unsupported = SceneState.CurrentCapsule.GetUnsupportedOrganisms();
+        if (unsupported.Count > 0)
         {
+            string unsupportedString = string.Join(", ", unsupported.Select(org => org.Type.DisplayName()).ToArray());
+            UIManager.Obj.OpenMessagePopup("Invalid capsule! " + unsupportedString + " would die!");
             return;
         }
         
@@ -29,6 +31,8 @@ public class LaunchButton : MonoBehaviour {
 
         if (SceneState.CurrentSolution.MeetsGoalRequirements())
         {
+            // Win!
+            LevelCompletionState.CompleteLevel(SceneState.CurrentLevel, SceneState.CurrentSolution.GetScore());
             SceneHelper.Obj.GoToLeaderboard(SceneState.CurrentLevel);
         }
     }
