@@ -10,6 +10,7 @@ public class OrganismTooltip : MonoBehaviour {
     [SerializeField] private GameObject producesIconParent;
     [SerializeField] private GameObject consumesIconParent;
     [SerializeField] private GameObject requiresIconParent;
+    [SerializeField] private Gauge temperatureGauge;
     
 	public void SetOrganism(EOrganism type)
     {
@@ -17,6 +18,8 @@ public class OrganismTooltip : MonoBehaviour {
         Instantiate(OrganismMap.Obj.GetIconPrefab(type), iconParent.transform);
 
         Organism organism = OrganismLibrary.GetOrganismFor(type);
+
+        temperatureGauge.SetHighlighted(organism.MinimumTemperature, organism.MaximumTemperature);
 
         foreach (Resource produces in organism.ProducedResources)
             Instantiate(ResourceMap.Obj.GetResourcePrefab(produces), producesIconParent.transform).Init(ResourceMode.Produced);

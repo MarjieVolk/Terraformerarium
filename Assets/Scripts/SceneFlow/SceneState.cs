@@ -37,7 +37,8 @@ public static class SceneState
         return LevelLibrary.GetLevelFor(CurrentLevel);
     }
 
-    public static void RefreshCurrentCapsule(int humidity = 0, int richness = 0, int temp = 0)
+    public static void RefreshCurrentCapsule(
+        int humidity = OrganismDefinitions.Normal, int richness = OrganismDefinitions.Normal, int temp = OrganismDefinitions.Normal)
     {
         CurrentCapsule = new Ecosystem(humidity, richness, temp);
     }

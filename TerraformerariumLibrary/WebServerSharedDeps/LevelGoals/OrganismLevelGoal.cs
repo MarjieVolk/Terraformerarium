@@ -13,4 +13,9 @@ public sealed class OrganismLevelGoal : LevelGoal
     {
         this.Organism = organism;
     }
+
+    protected override string GoalTargetDisplayString()
+    {
+        return this.Organism.DisplayName();
+    }
 }

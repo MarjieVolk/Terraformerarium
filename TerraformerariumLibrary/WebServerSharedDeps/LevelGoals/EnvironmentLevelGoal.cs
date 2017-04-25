@@ -1,3 +1,5 @@
+using System;
+
 [Evaluator(typeof(EnvironmentLevelGoalEvaluator))]
 public sealed class EnvironmentLevelGoal : LevelGoal
 {
@@ -7,5 +9,10 @@ public sealed class EnvironmentLevelGoal : LevelGoal
         : base(@operator, conditionValue)
     {
         this.EnvironmentAttribute = environmentAttribute;
+    }
+
+    protected override string GoalTargetDisplayString()
+    {
+        return EnvironmentAttribute.ToString();
     }
 }

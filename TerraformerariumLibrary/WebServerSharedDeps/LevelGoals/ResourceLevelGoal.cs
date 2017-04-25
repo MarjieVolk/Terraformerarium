@@ -1,3 +1,5 @@
+using System;
+
 [Evaluator(typeof(ResourceLevelGoalEvaluator))]
 public sealed class ResourceLevelGoal : LevelGoal
 {
@@ -7,5 +9,10 @@ public sealed class ResourceLevelGoal : LevelGoal
         : base(@operator, conditionValue)
     {
         this.Resource = resource;
+    }
+
+    protected override string GoalTargetDisplayString()
+    {
+        return this.Resource.ToString();
     }
 }

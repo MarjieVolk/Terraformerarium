@@ -5,31 +5,26 @@ using System.Text;
 
 public static class OrganismDefinitions
 {
-    public const int MinVeryLow = -7;
-    public const int MinLow = -4;
-    public const int MinNormal = -1;
-    public const int MinHigh = 2;
-    public const int MinVeryHigh = 5;
-    public const int MaxVeryLow = -5;
-    public const int MaxLow = -2;
-    public const int MaxNormal = 1;
-    public const int MaxHigh = 4;
-    public const int MaxVeryHigh = 7;
+    public const int VeryLow = 0;
+    public const int Low = 1;
+    public const int Normal = 2;
+    public const int High = 3;
+    public const int VeryHigh = 4;
 
     public static void Populate()
     {
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.COW,
-            MinimumHumidity = MinLow,
-            MaximumHumidity = MaxHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinLow,
-            MaximumTemperature = MaxHigh,
-            TemperatureMod = 1,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
-            SoilRichnessMod = 2,
+            MinimumTemperature = Low,
+            MaximumTemperature = High,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
+            SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(Resource.GRASS),
             ConsumedResources = new Multiset<Resource>(Resource.GRASS),
             ProducedResources = new Multiset<Resource>(Resource.MEAT, Resource.POOP)
@@ -38,14 +33,14 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.GRASS,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinVeryLow,
-            MaximumTemperature = MaxNormal,
+            MinimumTemperature = VeryLow,
+            MaximumTemperature = Normal,
             TemperatureMod = 0,
-            MinimumSoilRichness = MinLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(),
             ConsumedResources = new Multiset<Resource>(Resource.POOP),
@@ -55,14 +50,14 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.WHEAT,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinHigh,
-            MaximumTemperature = MaxVeryHigh,
+            MinimumTemperature = High,
+            MaximumTemperature = VeryHigh,
             TemperatureMod = 0,
-            MinimumSoilRichness = MinNormal,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(),
             ConsumedResources = new Multiset<Resource>(Resource.POOP),
@@ -72,15 +67,15 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.LETTUCE,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinLow,
-            MaximumTemperature = MaxHigh,
-            TemperatureMod = -1,
-            MinimumSoilRichness = MinNormal,
-            MaximumSoilRichness = MaxVeryHigh,
-            SoilRichnessMod = -1,
+            MinimumTemperature = Low,
+            MaximumTemperature = High,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
+            SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(Resource.POOP),
             ConsumedResources = new Multiset<Resource>(),
             ProducedResources = new Multiset<Resource>(Resource.GRASS, Resource.GRASS)
@@ -89,14 +84,14 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.MOSQUITO,
-            MinimumHumidity = MinNormal,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinNormal,
-            MaximumTemperature = MaxVeryHigh,
+            MinimumTemperature = Normal,
+            MaximumTemperature = VeryHigh,
             TemperatureMod = 0,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(Resource.MEAT),
             ConsumedResources = new Multiset<Resource>(),
@@ -106,31 +101,31 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.BLUE_JAY,
-            MinimumHumidity = MinLow,
-            MaximumHumidity = MaxHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinNormal,
-            MaximumTemperature = MaxHigh,
+            MinimumTemperature = High,
+            MaximumTemperature = VeryHigh,
             TemperatureMod = 0,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 1,
             RequiredResources = new Multiset<Resource>(Resource.SHADE),
             ConsumedResources = new Multiset<Resource>(Resource.BUGS),
-            ProducedResources = new Multiset<Resource>()
+            ProducedResources = new Multiset<Resource>(Resource.EGGSES)
         });
 
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.APPLE_TREE,
-            MinimumHumidity = MinHigh,
-            MaximumHumidity = MaxHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinNormal,
-            MaximumTemperature = MaxHigh,
-            TemperatureMod = -3,
-            MinimumSoilRichness = MinHigh,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumTemperature = Normal,
+            MaximumTemperature = High,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 1,
             RequiredResources = new Multiset<Resource>(),
             ConsumedResources = new Multiset<Resource>(Resource.POOP),
@@ -140,14 +135,14 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.FOX,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinVeryLow,
-            MaximumTemperature = MaxLow,
-            TemperatureMod = 1,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumTemperature = VeryLow,
+            MaximumTemperature = Low,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(),
             ConsumedResources = new Multiset<Resource>(Resource.MEAT),
@@ -157,14 +152,14 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.COUGAR,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinVeryLow,
-            MaximumTemperature = MaxNormal,
-            TemperatureMod = 1,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumTemperature = VeryLow,
+            MaximumTemperature = Normal,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(Resource.SHADE, Resource.ROCK),
             ConsumedResources = new Multiset<Resource>(Resource.MEAT, Resource.MEAT),
@@ -174,14 +169,14 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.SNAKE,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxNormal,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinHigh,
-            MaximumTemperature = MaxVeryHigh,
-            TemperatureMod = 1,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumTemperature = High,
+            MaximumTemperature = High,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(Resource.ROCK),
             ConsumedResources = new Multiset<Resource>(Resource.EGGSES),
@@ -191,31 +186,31 @@ public static class OrganismDefinitions
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.HEN,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinLow,
-            MaximumTemperature = MaxHigh,
-            TemperatureMod = 1,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumTemperature = Low,
+            MaximumTemperature = High,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(Resource.GRASS),
-            ConsumedResources = new Multiset<Resource>(Resource.GRAINS),
+            ConsumedResources = new Multiset<Resource>(),
             ProducedResources = new Multiset<Resource>(Resource.EGGSES)
         });
 
         OrganismLibrary.RegisterOrganism(new Organism()
         {
             Type = EOrganism.ROCK,
-            MinimumHumidity = MinVeryLow,
-            MaximumHumidity = MaxVeryHigh,
+            MinimumHumidity = VeryLow,
+            MaximumHumidity = VeryHigh,
             HumidityMod = 0,
-            MinimumTemperature = MinVeryLow,
-            MaximumTemperature = MaxVeryHigh,
-            TemperatureMod = 1,
-            MinimumSoilRichness = MinVeryLow,
-            MaximumSoilRichness = MaxVeryHigh,
+            MinimumTemperature = VeryLow,
+            MaximumTemperature = VeryHigh,
+            TemperatureMod = 0,
+            MinimumSoilRichness = VeryLow,
+            MaximumSoilRichness = VeryHigh,
             SoilRichnessMod = 0,
             RequiredResources = new Multiset<Resource>(),
             ConsumedResources = new Multiset<Resource>(),
