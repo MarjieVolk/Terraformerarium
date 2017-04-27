@@ -8,9 +8,8 @@ public class LaunchButton : MonoBehaviour {
 
     private int animationIndex = 0;
     private Animator animator;
-
-	// Use this for initialization
-	void Start () {
+    
+	void Awake() {
         SceneState.ResetSolution();
         GetComponent<Button>().onClick.AddListener(LaunchCapsule);
 	}
