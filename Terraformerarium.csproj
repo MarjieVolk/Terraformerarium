@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\EcosystemReference\PlanetEcosystemReference.cs" />
     <Compile Include="Assets\Scripts\Leaderboard\LeaderboardLevelName.cs" />
     <Compile Include="Assets\Scripts\LevelCompletionState.cs" />
+    <Compile Include="Assets\Scripts\LevelMap.cs" />
     <Compile Include="Assets\Scripts\LibraryPopulator.cs" />
     <Compile Include="Assets\Scripts\OrganismMap.cs" />
     <Compile Include="Assets\Scripts\ResourceMap.cs" />
@@ -122,6 +123,8 @@
     <Compile Include="Assets\Scripts\UI\LevelUI\OrganismCountIndicator.cs" />
     <Compile Include="Assets\Scripts\UI\LevelUI\OrganismIconUI.cs" />
     <Compile Include="Assets\Scripts\UI\LevelUI\PipeAnimator.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelUI\PlanetNameDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelUI\PlanetPrefabDisplayer.cs" />
     <Compile Include="Assets\Scripts\UI\LevelUI\ResourceUI.cs" />
     <Compile Include="Assets\Scripts\UI\LevelUI\Tooltips\HasOrganismTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\LevelUI\Tooltips\HasTooltip.cs" />
