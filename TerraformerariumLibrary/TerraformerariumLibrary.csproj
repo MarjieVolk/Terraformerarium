@@ -38,15 +38,10 @@
     <Compile Include="WebServerSharedDeps\EOrganism.cs" />
     <Compile Include="WebServerSharedDeps\Level.cs" />
     <Compile Include="WebServerSharedDeps\LevelDefinitions.cs" />
-    <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\OrganismLevelGoalEvaluator.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoals\EnvironmentAttribute.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoals\EnvironmentLevelGoal.cs" />
-    <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\EnvironmentLevelGoalEvaluator.cs" />
-    <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\Evaluator.cs" />
-    <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\LevelGoalEvaluator.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoals\OrganismLevelGoal.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoals\ResourceLevelGoal.cs" />
-    <Compile Include="WebServerSharedDeps\LevelGoalEvaluation\ResourceLevelGoalEvaluator.cs" />
     <Compile Include="WebServerSharedDeps\LevelLibrary.cs" />
     <Compile Include="WebServerSharedDeps\LevelEvaluation\ISolutionEvaluator.cs" />
     <Compile Include="WebServerSharedDeps\LevelGoals\LevelGoal.cs" />

@@ -27,16 +27,8 @@ public sealed class LevelSolutionEvaluator : ISolutionEvaluator
         IDictionary<LevelGoal, bool> goalResults = new Dictionary<LevelGoal, bool>();
         foreach (var goal in this.goals)
         {
-            // Could cache these to avoid recreating
-            Type goalEvaluatorType = goal.GetType().GetCustomAttributes(typeof(Evaluator), true)
-                .OfType<Evaluator>()
-                .Select(attr => attr.EvaluatorType)
-                .Single();
-            var goalEvaluator = Activator.CreateInstance(goalEvaluatorType);
-            var method = goalEvaluatorType.GetMethod("IsSatisfied", new[] {goal.GetType(), typeof(Ecosystem)});
             Ecosystem finalEcosystem = userSolution.GetFinalEcosystem();
-            bool result = (bool)method.Invoke(goalEvaluator, new object[] {goal, finalEcosystem});
-
+            bool result = goal.IsSatisfied(finalEcosystem);
             goalResults[goal] = result;
         }
 

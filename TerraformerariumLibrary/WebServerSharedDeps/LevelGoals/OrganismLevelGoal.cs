@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
-[Evaluator(typeof(OrganismLevelGoalEvaluator))]
 public sealed class OrganismLevelGoal : LevelGoal
 {
     public EOrganism Organism { get; }
@@ -17,5 +13,10 @@ public sealed class OrganismLevelGoal : LevelGoal
     protected override string GoalTargetDisplayString()
     {
         return this.Organism.DisplayName();
+    }
+
+    protected override int GetValueFromEcosystem(Ecosystem finalEcosystem)
+    {
+        return finalEcosystem.ContainedOrganisms.Where(o => o.Type == this.Organism).Count();
     }
 }
