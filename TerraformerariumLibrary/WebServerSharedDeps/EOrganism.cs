@@ -11,6 +11,7 @@ public enum EOrganism
     MOSQUITO,
     BLUE_JAY,
     APPLE_TREE,
+    OAK_TREE,
     LETTUCE,
     WHEAT,
     RABBIT,
@@ -18,7 +19,8 @@ public enum EOrganism
     COUGAR,
     HEN,
     SNAKE,
-    ROCK
+    ROCK,
+    SQUIRREL
 }
 
 public static class EOrganismExtensions
