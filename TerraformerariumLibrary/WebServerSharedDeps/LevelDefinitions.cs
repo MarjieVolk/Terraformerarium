@@ -13,11 +13,6 @@ public class LevelDefinitions
 
     public static void Populate()
     {
-        PopulateRandomLevel();
-    }
-
-    private static void PopulateRandomLevel()
-    {
         LevelLibrary.RegisterLevel("Level1", new Level()
         {
             InitialPlanet = NewEcosystem(0, 0, Normal),
@@ -40,7 +35,14 @@ public class LevelDefinitions
 
         LevelLibrary.RegisterLevel("Level3", new Level()
         {
-            InitialPlanet = NewEcosystem(0, 0, High, EOrganism.SNAKE, EOrganism.ROCK, EOrganism.BLUE_JAY, EOrganism.APPLE_TREE, EOrganism.MOSQUITO),
+            InitialPlanet = NewEcosystem(0, 0, High, 
+                EOrganism.SNAKE, 
+                EOrganism.ROCK, 
+                EOrganism.BLUE_JAY, 
+                EOrganism.APPLE_TREE, 
+                EOrganism.APPLE_TREE, 
+                EOrganism.COW, 
+                EOrganism.MOSQUITO),
             MaxOrganismsPerCapsule = 5,
             availableOrganisms = Organisms(EOrganism.COW, EOrganism.GRASS, EOrganism.WHEAT, EOrganism.FOX).ToList(),
             LevelGoals = new List<LevelGoal>() {

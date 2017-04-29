@@ -38,17 +38,16 @@ public class Ecosystem
     }
 
     public Ecosystem(IEnumerable<Organism> organisms) : this(0, 0, 0, organisms.ToArray())
-    {
-        ContainedOrganisms = new Multiset<Organism>();
-    }
+    { }
 
     public Ecosystem(Ecosystem other) : this(other.InitialHumidity, other.InitialSoilRichess, other.InitialTemperature,
         other.ContainedOrganisms.ToArray())
-    {
-        ContainedOrganisms = new Multiset<Organism>();
-    }
+    { }
 
-    public int InitialHumidity, InitialSoilRichess, InitialTemperature;
+    public int InitialHumidity;
+    public int InitialSoilRichess;
+    public int InitialTemperature;
+
     public int Humidity {
         get
         {
