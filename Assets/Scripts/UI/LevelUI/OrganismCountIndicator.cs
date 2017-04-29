@@ -18,7 +18,7 @@ public class OrganismCountIndicator : MonoBehaviour {
         int maxOrganisms = SceneState.GetCurrentLevel().MaxOrganismsPerCapsule;
         this.GetComponent<Text>().text = currentOrganisms + "/" + maxOrganisms;
 
-        if (currentOrganisms >= maxOrganisms)
+        if (currentOrganisms > maxOrganisms)
             this.GetComponent<Text>().color = Color.red;
         else
             this.GetComponent<Text>().color = Color.white;

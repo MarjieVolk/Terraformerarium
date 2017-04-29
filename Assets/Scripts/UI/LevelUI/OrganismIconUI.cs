@@ -40,6 +40,16 @@ public class OrganismIconUI : MonoBehaviour
     {
         int currentCount = ecosystem.Ecosystem.ContainedOrganisms.Where(org => org.Type == this.type).Count();
         countText.text = "x" + currentCount;
+
+        Organism o = OrganismLibrary.GetOrganismFor(this.type);
+        bool validTemp = 
+            ecosystem.Ecosystem.Temperature >= o.MinimumTemperature 
+            && ecosystem.Ecosystem.Temperature <= o.MaximumTemperature;
+
+        if (validTemp)
+            countText.color = Color.black;
+        else
+            countText.color = Color.red;
     }
 
     protected void OnDestroy()
